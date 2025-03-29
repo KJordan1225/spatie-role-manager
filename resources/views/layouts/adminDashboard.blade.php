@@ -155,9 +155,6 @@
                     data-bs-parent="#sidebarAccordion">
                     <div class="accordion-body">
                         <a href="{{ route('admin.roles.list') }}">List Roles</a>
-                        <!-- <a href="#createRole">Create Role</a>
-                        <a href="#editRole">Edit Role</a>
-                        <a href="#deleteRole">Delete Role</a> -->
                     </div>
                 </div>
             </div>
@@ -173,10 +170,7 @@
                 <div id="collapseUsers" class="accordion-collapse collapse" aria-labelledby="headingUsers"
                     data-bs-parent="#sidebarAccordion">
                     <div class="accordion-body">
-                        <a href="#showUsers">List Users</a>
-                        <!-- <a href="#create-user">Create User</a>
-                        <a href="#edit-user">Edit User</a>
-                        <a href="#delete-user">Delete User</a> -->
+                        <a href="{{ route('manage.users.index') }}">List Users</a>
                     </div>
                 </div>
             </div>
