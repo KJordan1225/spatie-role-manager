@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -20,13 +20,14 @@
     <style>
         .sidebar {
             height: 100vh;
-            width: 250px;
+            width: 200px;
             position: fixed;
             left: 0;
             top: 0;
             background-color: #343a40;
             color: white;
             padding-top: 20px;
+            margin-top: 80px;
         }
 
         .accordion-item {
@@ -73,7 +74,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <!-- {{ config('app.name', 'Admin Dashboard') }} -->
+                    {{ config('app.name', 'Admin Dashboard') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -134,94 +135,94 @@
                         @endguest
                     </ul>
                 </div>
-
-                <!-- Sidebar Section -->
-                <div class="sidebar">
-                    <div class="accordion" id="sidebarAccordion">
-
-                        <!-- Roles Section -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingRoles">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseRoles" aria-expanded="false" aria-controls="collapseRoles">
-                                    Manage Roles/Permissions
-                                </button>
-                            </h2>
-                            <div id="collapseRoles" class="accordion-collapse collapse" aria-labelledby="headingRoles"
-                                data-bs-parent="#sidebarAccordion">
-                                <div class="accordion-body">
-                                    <a href="#showRoles">List Roles</a>
-                                    <!-- <a href="#createRole">Create Role</a>
-                                    <a href="#editRole">Edit Role</a>
-                                    <a href="#deleteRole">Delete Role</a> -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Users Section -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingUsers">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
-                                    Manage Users
-                                </button>
-                            </h2>
-                            <div id="collapseUsers" class="accordion-collapse collapse" aria-labelledby="headingUsers"
-                                data-bs-parent="#sidebarAccordion">
-                                <div class="accordion-body">
-                                    <a href="#showUsers">List Users</a>
-                                    <!-- <a href="#create-user">Create User</a>
-                                    <a href="#edit-user">Edit User</a>
-                                    <a href="#delete-user">Delete User</a> -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- User Profiles Section -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingProfiles">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseProfiles" aria-expanded="false" aria-controls="collapseProfiles">
-                                    Manage User Profiles
-                                </button>
-                            </h2>
-                            <div id="collapseProfiles" class="accordion-collapse collapse" aria-labelledby="headingProfiles"
-                                data-bs-parent="#sidebarAccordion">
-                                <div class="accordion-body">
-                                    <a href="#list-profiles">List User Profiles</a>
-                                    <!-- <a href="#edit-documents">Edit Documents</a> -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Directory Section -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingDirectory">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseDirectory" aria-expanded="false" aria-controls="collapseDirectory">
-                                    Chapter Directory
-                                </button>
-                            </h2>
-                            <div id="collapseDirectory" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
-                                data-bs-parent="#sidebarAccordion">
-                                <div class="accordion-body">
-                                    <a href="#chapter-directory">View/Print Chapter Directory</a>
-                                    <!-- <a href="#edit-documents">Edit Documents</a> -->
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- End Sidebar Section -->
-
             </div>
         </nav>
+
+        
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+        <div class="accordion" id="sidebarAccordion">
+
+            <!-- Roles Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingRoles">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseRoles" aria-expanded="false" aria-controls="collapseRoles">
+                        Manage Roles/Permissions
+                    </button>
+                </h2>
+                <div id="collapseRoles" class="accordion-collapse collapse" aria-labelledby="headingRoles"
+                    data-bs-parent="#sidebarAccordion">
+                    <div class="accordion-body">
+                        <a href="{{ route('admin.roles.list') }}">List Roles</a>
+                        <!-- <a href="#createRole">Create Role</a>
+                        <a href="#editRole">Edit Role</a>
+                        <a href="#deleteRole">Delete Role</a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingUsers">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
+                        Manage Users
+                    </button>
+                </h2>
+                <div id="collapseUsers" class="accordion-collapse collapse" aria-labelledby="headingUsers"
+                    data-bs-parent="#sidebarAccordion">
+                    <div class="accordion-body">
+                        <a href="#showUsers">List Users</a>
+                        <!-- <a href="#create-user">Create User</a>
+                        <a href="#edit-user">Edit User</a>
+                        <a href="#delete-user">Delete User</a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Profiles Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingProfiles">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseProfiles" aria-expanded="false" aria-controls="collapseProfiles">
+                        Manage User Profiles
+                    </button>
+                </h2>
+                <div id="collapseProfiles" class="accordion-collapse collapse" aria-labelledby="headingProfiles"
+                    data-bs-parent="#sidebarAccordion">
+                    <div class="accordion-body">
+                        <a href="#list-profiles">List User Profiles</a>
+                        <!-- <a href="#edit-documents">Edit Documents</a> -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Directory Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDirectory">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseDirectory" aria-expanded="false" aria-controls="collapseDirectory">
+                        Chapter Directory
+                    </button>
+                </h2>
+                <div id="collapseDirectory" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
+                    data-bs-parent="#sidebarAccordion">
+                    <div class="accordion-body">
+                        <a href="#chapter-directory">View/Print Chapter Directory</a>
+                        <!-- <a href="#edit-documents">Edit Documents</a> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Sidebar Section -->
 
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
