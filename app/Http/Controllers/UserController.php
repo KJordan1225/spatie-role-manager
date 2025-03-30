@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserProfile;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
@@ -82,8 +83,11 @@ class UserController extends Controller
     public function show($id): View
     {
         $user = User::find($id);
+        $userProfile = UserProfile::where('user_id', $user->id)->first();
 
-        return view('manage.users.show',compact('user'));
+        // dd($userProfile);
+
+        return view('manage.users.show',compact('user','userProfile'));
     }
 
 

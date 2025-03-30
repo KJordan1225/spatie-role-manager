@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\UserProfile;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
   
@@ -19,6 +20,19 @@ class CreateAdminUserSeeder extends Seeder
             'name' => 'Shadow Admin', 
             'email' => 'shadow902@gmail.com',
             'password' => bcrypt('Welc0me!')
+        ]);
+
+        $userProfile = UserProfile::create([
+            'user_id' => $user->id,
+            'first_name' => 'Keith',
+            'last_name' => 'Jordan',
+            'address1' => '2216 Sherman Dr NW',
+            'city' => 'Roanoke',
+            'state' => 'Virginia',
+            'zip_code' => '24017',
+            'phone_number' => '540-521-8487',
+            'dob' => '1969-10-16',
+            'queversary' =>'1990-03-18',            
         ]);
         
         $role = Role::create(['name' => 'Admin']);

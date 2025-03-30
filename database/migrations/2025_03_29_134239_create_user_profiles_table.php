@@ -13,24 +13,23 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
 				$table->id();
-                 $table->unsignedBigInteger('user_id');
+                $table->unsignedBigInteger('user_id');
 				$table->foreign('user_id')
 					->references('id')
 					->on('users')
 					->onDelete('cascade')
 					->onUpdate('cascade');
-				$table->string('first_name');
-				$table->string('last_name');
-				$table->string('address1');
+				$table->string('first_name')->nullable();
+				$table->string('last_name')->nullable();
+				$table->string('address1')->nullable();
 				$table->string('address2')->nullable();
-				$table->string('city');
-				$table->string('state');
-				$table->string('zip_code');
-				$table->string('phone_number');
+				$table->string('city')->nullable();
+				$table->string('state')->nullable();
+				$table->string('zip_code')->nullable();
+				$table->string('phone_number')->nullable();
 				$table->enum('phone_type', ['mobile', 'landline'])->default('mobile');
-				$table->date('dob');
-				$table->date('queversary');
-				$table->text('detail');
+				$table->date('dob')->nullable();
+				$table->date('queversary')->nullable();
 				$table->timestamps();
         });
     }
