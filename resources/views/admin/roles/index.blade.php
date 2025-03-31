@@ -41,7 +41,7 @@
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirmDelete(this);">Delete</button>
             </form>
             @endcan
         </td>
@@ -49,5 +49,10 @@
     @endforeach
 </table>
 
+<script>
+    function confirmDelete(button) {
+        // Confirm before submission
+        return confirm("Are you sure you want to delete this role?");    }
+</script>
 
 @endsection

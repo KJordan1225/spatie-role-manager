@@ -33,7 +33,11 @@ Route::delete('/manage/users/destroy/{id}', [App\Http\Controllers\UserController
 // Routes to handle User Profile mangement.
 Route::get('/manage/user_profiles/list', [App\Http\Controllers\UserProfileController::class, 'index'])->name('manage.user_profiles.index');
 Route::get('/manage/user_profiles/edit/{id}', [App\Http\Controllers\UserProfileController::class, 'edit'])->name('manage.user_profiles.edit');
-Route::put('/manage/user_profile/update/{id}', [App\Http\Controllers\UserProfileController::class, 'update'])->name('manage.user_profiles.update');
+Route::put('/manage/user_profiles/update/{id}', [App\Http\Controllers\UserProfileController::class, 'update'])->name('manage.user_profiles.update');
+Route::get('/manage/user_profiles/create/{id}', [App\Http\Controllers\UserProfileController::class, 'create'])->name('manage.user_profiles.create');
+Route::post('/manage/user_profiles/store/{id}', [App\Http\Controllers\UserProfileController::class, 'store'])->name('manage.user_profiles.store');
+Route::delete('/manage/user_profiles/destroy/{id}', [App\Http\Controllers\UserProfileController::class, 'destroy'])->name('manage.user_profiles.destroy');
+
 
 
 

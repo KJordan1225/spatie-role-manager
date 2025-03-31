@@ -17,9 +17,9 @@ class UserProfileController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:profile-list|profile-create|profile-edit|profile-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:profile-create', ['only' => ['create','store']]);
-         $this->middleware('permission:profile-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:profile-list|profile-create|profile-edit|profile-delete|show-my-profile', ['only' => ['index','show']]);
+         $this->middleware('permission:profile-create|create-my-profile', ['only' => ['create','store']]);
+         $this->middleware('permission:profile-edit|edit-my-profile', ['only' => ['edit','update']]);
          $this->middleware('permission:profile-delete', ['only' => ['destroy']]);
     }
 
@@ -37,18 +37,56 @@ class UserProfileController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id): View
     {
-        //
+        $user = User::find($id);
+        return view('manage.user_profiles.create', compact('user'));
     }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id): RedirectResponse
     {
-        //
+        // Validate form request
+        $this->validate($request, [
+            'first_name' => 'nullable',
+            'last_name' => 'nullable',
+            'address1' => 'nullable',
+            'address2' => 'nullable',
+            'city' => 'nullable',
+            'state' => 'nullable',
+            'zip_code' => 'nullable',
+            'phone_number' => 'nullable',
+            'phone_type' => 'required|in:mobile,landline',
+            'dob' => 'nullable|date_format:Y-m-d',
+            'queversary' => 'nullable|date_format:Y-m-d',            
+        ]);
+
+        // Create a new user profile instance and set properties individually
+        $userProfile = new UserProfile();
+        $userProfile->first_name = $request->first_name;
+        $userProfile->last_name = $request->lasr_name;
+        $userProfile->address1 = $request->address1;
+        $userProfile->address2 = $request->address2;
+        $userProfile->city = $request->city;
+        $userProfile->state = $request->state;
+        $userProfile->zip_code = $request->zip_code;
+        $userProfile->phone_number = $request->phone_number;
+        $userProfile->phone_type = $request->phone_type;
+        $userProfile->dob = $request->dob;
+        $userProfile->queversary = $request->queversary;
+        $userProfile->user_id = $id;
+        $userProfile->save(); // Save the user profile to the database
+    
+        return redirect()->route('manage.user_profiles.index')
+                        ->with('success','User profile created successfully');
     }
 
     /**
@@ -105,14 +143,20 @@ class UserProfileController extends Controller
         $userProfile->update($input);        
     
         return redirect()->route('manage.user_profiles.index')
-                        ->with('success','User updated successfully');
+                        ->with('success','User profile updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(string $id)
+    public function destroy($id): RedirectResponse
     {
-        //
+        $user = User::find($id);
+        UserProfile::where('user_id',$user->id)->delete();
+        return redirect()->route('manage.user_profiles.index')
+                        ->with('success','User profile deleted successfully');
     }
 }
