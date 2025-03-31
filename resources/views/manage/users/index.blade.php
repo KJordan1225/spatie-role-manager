@@ -33,7 +33,9 @@
         <td>{{ ++$i }}</td>
         <td>{{ $user->name }}</td>
 		<td>{{ $user->email }}</td>
-		<td><input type="checkbox" name="user[{{$i}}]" value="" class="name" /></td>
+		<td>
+            <input type="checkbox" name="is_active" id="active" value="1" {{ $user->is_active ? 'checked' : '' }}>
+        </td>
         <td>
             <a class="btn btn-info btn-sm" href="{{ route('manage.users.show',$user->id) }}"><i class="fa-solid fa-list"></i> Show</a>
             @can('user-edit')

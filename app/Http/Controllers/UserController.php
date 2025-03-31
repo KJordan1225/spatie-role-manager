@@ -102,8 +102,9 @@ class UserController extends Controller
         $user = User::find($id);
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
+        $userProfile = UserProfile::where('user_id', $user->id)->first();
     
-        return view('manage.users.edit',compact('user','roles','userRole'));
+        return view('manage.users.edit',compact('user','roles','userRole','userProfile'));
     }
 
     /**

@@ -186,7 +186,7 @@
                 <div id="collapseProfiles" class="accordion-collapse collapse" aria-labelledby="headingProfiles"
                     data-bs-parent="#sidebarAccordion">
                     <div class="accordion-body">
-                        <a href="#list-profiles">List User Profiles</a>
+                        <a href="{{ route('manage.user_profiles.index') }}">List User Profiles</a>
                         <!-- <a href="#edit-documents">Edit Documents</a> -->
                     </div>
                 </div>
