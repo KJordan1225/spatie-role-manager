@@ -28,8 +28,9 @@ return new class extends Migration
 				$table->string('zip_code')->nullable();
 				$table->string('phone_number')->nullable();
 				$table->enum('phone_type', ['mobile', 'landline'])->default('mobile');
-				$table->date('dob')->nullable();
+				$table->date('dob')->nullable();				
 				$table->date('queversary')->nullable();
+				$table->string('profile_image')->nullable();
 				$table->timestamps();
         });
     }

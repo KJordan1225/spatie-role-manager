@@ -102,5 +102,33 @@
         </div>
     </div>    
 </form>
+<br />
+<br />
+@if($userProfile->profile_image)   
+    <div class="row" style="margin-left: 250px;">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                 <img src="{{ asset('storage/' . $userProfile->profile_image) }}" alt="Profile Image" style="width: 150px; height: 150px; border: 1px solid #000; padding: 5px; margin: 10px;">
+            </div>
+        </div>
+    </div>
+@endif
+<br />
+UPLOAD PROFILE PICTURE
+<hr />
+<form action="{{ route('manage.user_profiles.upload_pics', $user->id) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+
+    <div class="row" style="margin-left: 250px;">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <input type="file" name="profile_image" id="profile_image">
+                <button type="submit">Upload Profile Picture</button>
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+<hr />
 
 @endsection

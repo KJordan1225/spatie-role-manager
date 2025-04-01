@@ -38,6 +38,9 @@ Route::get('/manage/user_profiles/create/{id}', [App\Http\Controllers\UserProfil
 Route::post('/manage/user_profiles/store/{id}', [App\Http\Controllers\UserProfileController::class, 'store'])->name('manage.user_profiles.store');
 Route::delete('/manage/user_profiles/destroy/{id}', [App\Http\Controllers\UserProfileController::class, 'destroy'])->name('manage.user_profiles.destroy');
 
+// Upload user profile pics
+Route::post('/manage/user_profiles/upload_pics/{id}', [App\Http\Controllers\UserProfileController::class, 'uploadPic'])->name('manage.user_profiles.upload_pics');
+
 
 
 

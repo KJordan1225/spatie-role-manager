@@ -12,6 +12,9 @@ use Hash;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 class UserProfileController extends Controller
 {
@@ -159,4 +162,37 @@ class UserProfileController extends Controller
         return redirect()->route('manage.user_profiles.index')
                         ->with('success','User profile deleted successfully');
     }
+
+
+    /**
+     * Upload user profile pic
+     *
+     */
+    public function uploadPic(Request $request, $id)
+    {
+        $request->validate([
+            'profile_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $user = User::find($id); // or use User::find($id) if it's an admin updating a user's profile
+        $userProfile = UserProfile::where('user_id', $user->id)->first();
+
+        if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            $filename = 'profile_' . $user->id . '.' . $image->getClientOriginalExtension();
+
+            // Delete the old image if exists
+            if ($userProfile->profile_image) {
+                Storage::disk('public')->delete($userProfile->profile_image);
+            }
+
+            // Store the new image
+            $path = $image->storeAs('profiles', $filename, 'public');
+            $userProfile->profile_image = $path;
+            $userProfile->save();
+        }
+
+        return redirect()->back()->with('success', 'Profile image updated successfully!');
+    }
+
 }

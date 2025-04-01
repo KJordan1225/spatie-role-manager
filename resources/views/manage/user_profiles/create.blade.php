@@ -22,6 +22,8 @@
       </ul>
     </div>
 @endif
+<br />
+<br />
 
 <form method="POST" action="{{ route('manage.user_profiles.store',$user->id) }}">
     @csrf
@@ -101,5 +103,6 @@
         </div>
     </div>    
 </form>
+
 
 @endsection
