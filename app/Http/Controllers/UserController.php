@@ -152,4 +152,29 @@ class UserController extends Controller
         return redirect()->route('manage.users.index')
                         ->with('success','User deleted successfully');
     }
+
+
+    public function updateIsActive(Request $request)
+    {
+        $itemStatuses = $request->input('items', []);
+
+        foreach ($itemStatuses as $itemId => $status) {
+            User::where('id', $itemId)->update(['is_active' => (bool) $status]);
+        }
+
+        return back()->with('success', 'User active statuses updated successfully.');
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listIsActive(Request $request): View
+    {
+        $users = User::all();
+        return view('manage.users.listIsActive',compact('users'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
 }

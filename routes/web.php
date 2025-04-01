@@ -40,6 +40,9 @@ Route::delete('/manage/user_profiles/destroy/{id}', [App\Http\Controllers\UserPr
 
 // Upload user profile pics
 Route::post('/manage/user_profiles/upload_pics/{id}', [App\Http\Controllers\UserProfileController::class, 'uploadPic'])->name('manage.user_profiles.upload_pics');
+// Update is active
+Route::get('/manage/users/listIsActive', [App\Http\Controllers\UserController::class, 'listIsActive'])->name('manage.users.listIsActive');
+Route::post('/manage/users/updateIsActive', [App\Http\Controllers\UserController::class, 'updateIsActive'])->name('manage.users.updateIsActive');
 
 
 

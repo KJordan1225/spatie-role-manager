@@ -36,7 +36,7 @@
             <div class="form-group">
                 <strong>Permission:</strong>
                 <br/>
-                @foreach($permission as $value)
+                @foreach($permission as $value) 
                     <label><input type="checkbox" name="permission[{{$value->id}}]" value="{{$value->id}}" class="name">
                     {{ $value->name }}</label>
                 <br/>

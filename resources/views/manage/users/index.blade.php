@@ -34,7 +34,7 @@
         <td>{{ $user->name }}</td>
 		<td>{{ $user->email }}</td>
 		<td>
-            <input type="checkbox" name="is_active" id="active" value="1" {{ $user->is_active ? 'checked' : '' }}>
+            <input type="checkbox" id="active" value="1" name="is_active[{{$user->id}}]" {{ $user->is_active ? 'checked' : '' }}>
         </td>
         <td>
             <a class="btn btn-info btn-sm" href="{{ route('manage.users.show',$user->id) }}"><i class="fa-solid fa-list"></i> Show</a>
@@ -51,16 +51,23 @@
             </form>
             @endcan
         </td>
-    </tr>
+    </tr>    
     @endforeach
 
-    {!! $users->links('pagination::bootstrap-5') !!}
+    {!! $users->links('pagination::bootstrap-5') !!} 
 
 </table>
+
+<div class="row" style="margin-left: 250px;">
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        <a href="{{ route('manage.users.listIsActive') }}" class="btn btn-primary btn-sm mt-2 mb-3">Update Active Users</a>
+    </div>
+</div>
 
 <script>
     function confirmDelete(button) {
         // Confirm before submission
-        return confirm("Are you sure you want to delete this user?");    }
+        return confirm("Are you sure you want to delete this user?"); }
+     
 </script>
 @endsection
