@@ -47,6 +47,9 @@
         </td>
     </tr>
     @endforeach
+
+    {!! $roles->links('pagination::bootstrap-5') !!}
+    
 </table>
 
 <script>

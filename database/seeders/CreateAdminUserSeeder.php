@@ -63,15 +63,48 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('Welc0me!')
         ]);
         
-        $role = Role::create(['name' => 'Brother']);
+        $role1 = Role::create(['name' => 'Brother']);
          
-        $permission = Permission::create(['name' => 'show-my-profile']);       
-        $role->givePermissionTo($permission);
-        $permission = Permission::create(['name' => 'create-my-profile']);       
-        $role->givePermissionTo($permission);
-        $permission = Permission::create(['name' => 'edit-my-profile']);       
-        $role->givePermissionTo($permission);
+        $permission1 = Permission::create(['name' => 'show-my-profile']);       
+        $role1->givePermissionTo($permission1);
+        $permission2 = Permission::create(['name' => 'create-my-profile']);       
+        $role1->givePermissionTo($permission2);
+        $permission3 = Permission::create(['name' => 'edit-my-profile']);       
+        $role1->givePermissionTo($permission3);
          
-        $brother->assignRole([$role->id]);
+        $brother->assignRole([$role1->id]);
+
+        $brother = User::create([
+            'name' => 'User3 Brother', 
+            'email' => 'user3@gmail.com',
+            'password' => bcrypt('Welc0me!')
+        ]);
+
+        $brother->assignRole([$role1->id]);
+
+        $brother = User::create([
+            'name' => 'User4 Brother', 
+            'email' => 'user4@gmail.com',
+            'password' => bcrypt('Welc0me!')
+        ]);
+
+        $brother->assignRole([$role1->id]);
+
+        $brother = User::create([
+            'name' => 'User5 Brother', 
+            'email' => 'user5@gmail.com',
+            'password' => bcrypt('Welc0me!')
+        ]);
+
+        $brother->assignRole([$role1->id]);
+
+        $brother = User::create([
+            'name' => 'User6 Brother', 
+            'email' => 'user6@gmail.com',
+            'password' => bcrypt('Welc0me!')
+        ]);
+
+        $brother->assignRole([$role1->id]);
+        
     }
 }

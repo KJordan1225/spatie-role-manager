@@ -68,6 +68,9 @@
         </td>
     </tr>
     @endforeach
+
+     {!! $users->links('pagination::bootstrap-5') !!}
+
 </table>
 
 <script>
