@@ -5,12 +5,7 @@
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>User Profile Management</h2>
-        </div>
-        <!-- <div class="pull-right">
-        @can('role-create')
-            <a class="btn btn-success btn-sm mb-2" href="{{ route('manage.users.create') }}"><i class="fa fa-plus"></i> Create New User</a>
-        @endcan
-        </div> -->
+        </div>        
     </div>
 </div>
 

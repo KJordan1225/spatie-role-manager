@@ -206,7 +206,7 @@
                 <div id="collapseDirectory" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
                     data-bs-parent="#sidebarAccordion">
                     <div class="accordion-body">
-                        <a href="#chapter-directory">View/Print Chapter Directory</a>
+                        <a href="{{ route('chapter_directory.view') }}">View/Print Chapter Directory</a>
                         <!-- <a href="#edit-documents">Edit Documents</a> -->
                     </div>
                 </div>

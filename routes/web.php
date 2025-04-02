@@ -44,6 +44,10 @@ Route::post('/manage/user_profiles/upload_pics/{id}', [App\Http\Controllers\User
 Route::get('/manage/users/listIsActive', [App\Http\Controllers\UserController::class, 'listIsActive'])->name('manage.users.listIsActive');
 Route::post('/manage/users/updateIsActive', [App\Http\Controllers\UserController::class, 'updateIsActive'])->name('manage.users.updateIsActive');
 
+// Routes to manage chapter directory
+Route::get('/chapter_directory/view', [App\Http\Controllers\ChapterDirectoryController::class, 'viewDirectory'])->name('chapter_directory.view');
+
+
 
 
 

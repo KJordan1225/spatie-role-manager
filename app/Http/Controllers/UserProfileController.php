@@ -75,7 +75,7 @@ class UserProfileController extends Controller
         // Create a new user profile instance and set properties individually
         $userProfile = new UserProfile();
         $userProfile->first_name = $request->first_name;
-        $userProfile->last_name = $request->lasr_name;
+        $userProfile->last_name = $request->last_name;
         $userProfile->address1 = $request->address1;
         $userProfile->address2 = $request->address2;
         $userProfile->city = $request->city;
