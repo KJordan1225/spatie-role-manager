@@ -46,6 +46,7 @@ Route::post('/manage/users/updateIsActive', [App\Http\Controllers\UserController
 
 // Routes to manage chapter directory
 Route::get('/chapter_directory/view', [App\Http\Controllers\ChapterDirectoryController::class, 'viewDirectory'])->name('chapter_directory.view');
+Route::get('generate-pdf', [App\Http\Controllers\ChapterDirectoryController::class, 'generatePDF'])->name('chapter_directory.generatepdf');
 
 
 

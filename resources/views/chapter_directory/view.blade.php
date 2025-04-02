@@ -33,6 +33,13 @@
 
 </table>
 
-{!! $profiles->links('pagination::bootstrap-5') !!}
+<div class="row" style="margin-left: 250px;">
+    <div class="col-lg-12 margin-tb">        
+        <div class="pull-right">
+            <a class="btn btn-success btn-sm mb-2" href="{{ route('chapter_directory.generatepdf') }}"><i class="fa fa-plus"></i> Generate PDF</a>
+        </div>
+    </div>
+</div>
+
 
 @endsection

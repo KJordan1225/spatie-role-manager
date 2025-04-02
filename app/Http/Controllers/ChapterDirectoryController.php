@@ -14,15 +14,36 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Pdf;
 
 class ChapterDirectoryController extends Controller
 {
     // Display view of chapter directory
     public function viewDirectory(Request $request)
     {
-        $profiles = UserProfile::orderBy('last_name')->orderBy('first_name')->paginate(5);
+        $profiles = UserProfile::orderBy('last_name')->orderBy('first_name')->get();
 
-        return view('chapter_directory.view',compact('profiles'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('chapter_directory.view',compact('profiles'));
     }
+
+    // Generate PDF of chapter directory
+    public function generatePDF()
+    {
+        $profiles = UserProfile::orderBy('last_name')->orderBy('first_name')->get();
+    
+        $data = [
+            'title' => 'Gamma Alpha Chapter Directory',
+            'date' => date('m/d/Y'),
+            'profiles' => $profiles,
+            'img1' => public_path('profiles/profile_1.jpg')
+        ]; 
+              
+        $pdf = PDF::loadView('GAChapterDirectory', $data);
+
+        $pdf->getDomPDF()->set_option("isRemoteEnabled", true);
+       
+        return $pdf->download('GAChapterDirectory.pdf');
+    }
+
+    
 }
