@@ -50,6 +50,7 @@ Route::get('generate-pdf', [App\Http\Controllers\ChapterDirectoryController::cla
 
 // Routes to manage user profiles auth->user owns
 Route::get('/myProfile/index', [App\Http\Controllers\MyUserProfileController::class, 'index'])->middleware('App\Http\Middleware\EnsureProfileOwnership::class')->name('my_profile.view');
+Route::get('/myProfile/edit', [App\Http\Controllers\MyUserProfileController::class, 'edit'])->name('my_profile.edit');
 
 
 

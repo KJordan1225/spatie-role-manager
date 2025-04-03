@@ -150,16 +150,25 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingDirectory">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseDirectory" aria-expanded="false" aria-controls="collapseDirectory">
+                        data-bs-target="#collapseDirectory1" aria-expanded="false" aria-controls="collapseDirectory1">
                         Manage My Profile
                     </button>
                 </h2>
-                <div id="collapseDirectory" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
-                    data-bs-parent="#sidebarAccordion">
-                    <div class="accordion-body">
-                        <a href="#">Edit My Profile</a>
+                @if (Auth::user()->userProfile)
+                    <div id="collapseDirectory1" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
+                        data-bs-parent="#sidebarAccordion">
+                        <div class="accordion-body">
+                            <a href="{{ route('my_profile.edit') }}">Edit My Profile</a>
+                        </div>
                     </div>
-                </div>
+                @else
+                    <div id="collapseDirectory1" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
+                        data-bs-parent="#sidebarAccordion">
+                        <div class="accordion-body">
+                            <a href="#">Create My Profile</a>
+                        </div>
+                    </div>
+                @endif
             </div>
 
             <!-- Directory Section -->
@@ -187,6 +196,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://kit.fontawesome.com/9e77b5ca56.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -206,7 +206,7 @@ class UserProfileController extends Controller
         return redirect()->back()->with('success', 'Profile image updated successfully!');
     }
 
-    public function dynamicLayout()
+    public function dynamicLayout() 
     {
         $role = Auth::user()->getRoleNames()->first();
 

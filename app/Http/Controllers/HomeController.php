@@ -34,7 +34,7 @@ class HomeController extends Controller
             case 'Manager':
                 return view('managerdash');
             case 'Brother':
-                return view('brotherdash');
+                return view('brotherdash',compact('role'));
             default:
                 abort(403, 'Unauthorized action.');
         }
