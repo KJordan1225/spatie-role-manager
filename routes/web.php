@@ -48,6 +48,10 @@ Route::post('/manage/users/updateIsActive', [App\Http\Controllers\UserController
 Route::get('/chapter_directory/view', [App\Http\Controllers\ChapterDirectoryController::class, 'viewDirectory'])->name('chapter_directory.view');
 Route::get('generate-pdf', [App\Http\Controllers\ChapterDirectoryController::class, 'generatePDF'])->name('chapter_directory.generatepdf');
 
+// Routes to manage user profiles auth->user owns
+Route::get('/myProfile/index', [App\Http\Controllers\MyUserProfileController::class, 'index'])->middleware('App\Http\Middleware\EnsureProfileOwnership::class')->name('my_profile.view');
+
+
 
 
 

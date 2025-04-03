@@ -14,6 +14,12 @@
                         </div>
                     @endif
 
+                    @session('error')
+                        <div class="alert alert-danger" role="alert" style="margin-left: 250px;"> 
+                            {{ $value }}
+                        </div>
+                    @endsession
+
                     {{ __('You are logged in! Admin Dashboard') }}
                 </div>
             </div>

@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.adminDashboard')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Test View') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,15 +16,17 @@
 
                     @session('error')
                         <div class="alert alert-danger" role="alert" style="margin-left: 250px;"> 
-                            {{ $value }}
+                            {{ $value }}                            
                         </div>
                     @endsession
-
+                    
                     @unless (Auth::check() && Auth::user()->id === 1000)
-                        <a href="{{ url('/') }}">Return to Home</a><br /><br />
+                        <a href="{{ url('/') }}">Return to Home</a>
                     @endunless
 
-                    {{ __('You are logged in!') }} Non Admin User
+                    @if (Auth::check())
+                        {{ __('You are logged in! Test Dashboard') }}
+                    @endif
                 </div>
             </div>
         </div>
