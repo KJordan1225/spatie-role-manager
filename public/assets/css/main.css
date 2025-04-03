@@ -1302,8 +1302,8 @@ body.wt-login .wt-userlogedin{display: block;}
 }
 .wt-usernav ul li .sub-menu{
 	border:0;
-	left:auto;
-	right: 100%;
+	left: auto;
+	right: 50.5%;
 	border-radius:4px 0 0 4px;
 }
 .wt-usernav ul li:hover .sub-menu{

@@ -27,6 +27,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $rolesCollection = $user->getRoleNames();
         $role = $rolesCollection->first();
+        $profile = Auth::user()->userProfile;
 
         switch ($role) {
             case 'Admin':
@@ -34,7 +35,7 @@ class HomeController extends Controller
             case 'Manager':
                 return view('managerdash');
             case 'Brother':
-                return view('brotherdash',compact('role'));
+                return view('brotherdash',compact('role','profile'));
             default:
                 abort(403, 'Unauthorized action.');
         }

@@ -217,22 +217,22 @@
 												<li class="menu-item-has-children">
 													<a href="javascript:void(0);">My Profile</a>
 													<ul class="sub-menu">
-														<li><span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
-															@if(null == (auth()->user()->profile))
+														<li><span class="wt-dropdownarrow"><i class="lnr lnr-chevron-right"></i></span>
+															@if(null == (auth()->user()->userProfile))
 															<ul>
-																<li><a href="profiles/create">Create Profile</a></li>
+																<li><a href="#">Create My Profile</a></li>
 															</ul>
 															@else
 															<ul class="sub-menu">
-																<li class="wt-newnoti"><a href="javascript:void(0);">View Profile</a></li>
-																<li class="wt-newnoti"><a href="javascript:void(0);">Edit Profile</a></li>
+																<li class="wt-newnoti"><a href="{{ route('home') }}">View My Profile</a></li>
+																<li class="wt-newnoti"><a href="javascript:void(0);">Edit My Profile</a></li>
 															</ul>
 															@endif
 														</li>
 													</ul>
 												</li>
 												<li>
-													<a href="dashboard-accountsettings.html">
+													<a href="#">
 														<span>Account Settings</span>
 													</a>
 												</li>

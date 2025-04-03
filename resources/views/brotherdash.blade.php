@@ -15,10 +15,23 @@
                     @endif
 
                     @session('error')
-                        <div class="alert alert-danger" role="alert" style="margin-left: 250px;"> 
+                        <div class="alert alert-danger" role="alert"> 
                             {{ $value }}
                         </div>
                     @endsession
+
+                    <table class="table table-bordered" id="profileTable">                        
+                        <tr>
+                            <td width="100px"><!-- Profile Image -->
+                                <img src="{{ asset('storage/' . $profile->profile_image) }}" alt="No Profile Image Uploaded" style="width: 100px; height: 100px; object-fit: cover;" class="img-fluid rounded-circle"></td>
+                            <td width="300px">
+                                Name: {{ $profile->last_name }}, {{ $profile->first_name }}<br />
+                                Address: {{ $profile->address1 }}<br />
+                                        {{ $profile->city }}, {{ $profile->state}} {{ $profile->zip_code }}<br />            
+                                Email: {{ $profile->user->email }}
+                            </td>
+                        </tr>
+                    </table>
 
                     {{ __('You are logged in! Brother Dashboard') }}
                 </div>
