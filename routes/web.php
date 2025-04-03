@@ -57,6 +57,8 @@ Route::post('/myProfile/store', [App\Http\Controllers\MyUserProfileController::c
 Route::post('/myProfile/upload_pics', [App\Http\Controllers\MyUserProfileController::class, 'uploadPic'])->name('my_profile.upload_pics');
 
 
+// Routes to service website guest pages
+Route::get('/about_ga', [App\Http\Controllers\GuestPagesController::class, 'aboutGA'])->name('about_ga');
 
 
 
@@ -64,4 +66,6 @@ Route::post('/myProfile/upload_pics', [App\Http\Controllers\MyUserProfileControl
 
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('admin_dashboard');
+
+
+
