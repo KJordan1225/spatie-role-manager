@@ -52,6 +52,9 @@ Route::get('generate-pdf', [App\Http\Controllers\ChapterDirectoryController::cla
 Route::get('/myProfile/index', [App\Http\Controllers\MyUserProfileController::class, 'index'])->name('my_profile.view');
 Route::get('/myProfile/edit', [App\Http\Controllers\MyUserProfileController::class, 'edit'])->name('my_profile.edit');
 Route::put('/myProfile/update', [App\Http\Controllers\MyUserProfileController::class, 'update'])->name('my_profile.update');
+Route::get('/myProfile/create/', [App\Http\Controllers\MyUserProfileController::class, 'create'])->name('my_profile.create');
+Route::post('/myProfile/store', [App\Http\Controllers\MyUserProfileController::class, 'store'])->name('my_profile.store');
+Route::post('/myProfile/upload_pics', [App\Http\Controllers\MyUserProfileController::class, 'uploadPic'])->name('my_profile.upload_pics');
 
 
 

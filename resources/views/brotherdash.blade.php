@@ -20,10 +20,13 @@
                         </div>
                     @endsession
 
+                    @if ($profile === null)
+                    @else
                     <table class="table table-bordered" id="profileTable">                        
                         <tr>
-                            <td width="100px"><!-- Profile Image -->
-                                <img src="{{ asset('storage/' . $profile->profile_image) }}" alt="No Profile Image Uploaded" style="width: 100px; height: 100px; object-fit: cover;" class="img-fluid rounded-circle"></td>
+                            <td width="100px">                                
+                                <img src="{{ asset('storage/' . $profile->profile_image) }}" alt="No Profile Image Uploaded" style="width: 100px; height: 100px; object-fit: cover;" class="img-fluid rounded-circle">
+                            </td>
                             <td width="300px">
                                 Name: {{ $profile->last_name }}, {{ $profile->first_name }}<br />
                                 Address: {{ $profile->address1 }}<br />
@@ -32,6 +35,7 @@
                             </td>
                         </tr>
                     </table>
+                    @endif
 
                     {{ __('You are logged in! Brother Dashboard') }}
                 </div>

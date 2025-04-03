@@ -165,7 +165,7 @@
                     <div id="collapseDirectory1" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
                         data-bs-parent="#sidebarAccordion">
                         <div class="accordion-body">
-                            <a href="#">Create My Profile</a>
+                            <a href="{{ route('my_profile.create') }}">Create My Profile</a>
                         </div>
                     </div>
                 @endif

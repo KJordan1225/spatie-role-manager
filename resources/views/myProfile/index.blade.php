@@ -13,6 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif -->
+                    @if (isset($message))
+                        <div class="alert alert-success">
+                            {{ $message }}
+                        </div>
+                    @endif
 
                     @session('success')
                         <div class="alert alert-success" role="alert"> 
@@ -34,19 +39,16 @@
                                 Name: {{ $profile->last_name }}, {{ $profile->first_name }}<br />
                                 Address: {{ $profile->address1 }}<br />
                                         {{ $profile->city }}, {{ $profile->state}} {{ $profile->zip_code }}<br />            
-                                Email: {{ $profile->user->email }}
+                                Email: {{ $profile->user->email }} <br />
+                                Phone: {{ $profile->phone_number }} {{ $profile->phone_type}}
                             </td>
                         </tr>
                     </table>
-
+                    
                     <br /><br />
-                    
-                   
-                    <a href="{{ url('/') }}">Return to Home</a><br /><br />
-                    
 
                     @if (Auth::check())
-                        {{ __('You are logged in! Brother Dashboard - myProfile/index.blade.php') }}
+                        {{ __('You are logged in! Brother Dashboard') }}
                     @endif
                 </div>
             </div>

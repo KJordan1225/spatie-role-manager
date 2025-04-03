@@ -116,7 +116,7 @@
 <br />
 UPLOAD PROFILE PICTURE
 <hr />
-<form action="#" method="POST" enctype="multipart/form-data">
+<form action="{{ route('my_profile.upload_pics') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="row" style="margin-left: 250px;">
