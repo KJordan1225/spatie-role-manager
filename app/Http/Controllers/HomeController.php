@@ -28,13 +28,16 @@ class HomeController extends Controller
         $rolesCollection = $user->getRoleNames();
         $role = $rolesCollection->first();
 
-        if ($role === 'Admin')
-        {
-            return view('admindash');
-        } else {
-            return view('home');
+        switch ($role) {
+            case 'Admin':
+                return view('admindash');
+            case 'Manager':
+                return view('managerdash');
+            case 'Brother':
+                return view('brotherdash');
+            default:
+                abort(403, 'Unauthorized action.');
         }
-        // dd($role[0]);
         
     }
 }

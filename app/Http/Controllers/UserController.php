@@ -13,6 +13,7 @@ use Hash;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -33,7 +34,8 @@ class UserController extends Controller
     public function index(Request $request): View
     {
         $users = User::orderBy('id', 'ASC')->paginate(5);
-        return view('manage.users.index',compact('users'))
+        $layout = $this->dynamicLayout();
+        return view('manage.users.index',compact('users','layout'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -45,8 +47,9 @@ class UserController extends Controller
     public function create(): View
     {
         $roles = Role::pluck('name','name')->all();
+        $layout = $this->dynamicLayout();
 
-        return view('manage.users.create',compact('roles'));
+        return view('manage.users.create',compact('roles','layout'));
     }
 
     /**
@@ -69,8 +72,9 @@ class UserController extends Controller
     
         $user = User::create($input);
         $user->assignRole($request->input('roles'));
+        $layout = $this->dynamicLayout();
     
-        return redirect()->route('manage.users.index')
+        return redirect()->route('manage.users.index','layout')
                         ->with('success','User created successfully');
     }
 
@@ -84,10 +88,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $userProfile = UserProfile::where('user_id', $user->id)->first();
+        $layout = $this->dynamicLayout();
 
-        // dd($userProfile);
-
-        return view('manage.users.show',compact('user','userProfile'));
+        return view('manage.users.show',compact('user','userProfile','layout'));
     }
 
 
@@ -103,8 +106,9 @@ class UserController extends Controller
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
         $userProfile = UserProfile::where('user_id', $user->id)->first();
+        $layout = $this->dynamicLayout();
     
-        return view('manage.users.edit',compact('user','roles','userRole','userProfile'));
+        return view('manage.users.edit',compact('user','roles','userRole','userProfile','layout'));
     }
 
     /**
@@ -135,8 +139,9 @@ class UserController extends Controller
         DB::table('model_has_roles')->where('model_id',$id)->delete();
     
         $user->assignRole($request->input('roles'));
+        $layout = $this->dynamicLayout();
     
-        return redirect()->route('manage.users.index')
+        return redirect()->route('manage.users.index','layout')
                         ->with('success','User updated successfully');
     }
 
@@ -149,7 +154,9 @@ class UserController extends Controller
     public function destroy($id): RedirectResponse
     {
         User::find($id)->delete();
-        return redirect()->route('manage.users.index')
+        $layout = $this->dynamicLayout();
+
+        return redirect()->route('manage.users.index','layout')
                         ->with('success','User deleted successfully');
     }
 
@@ -174,7 +181,26 @@ class UserController extends Controller
     public function listIsActive(Request $request): View
     {
         $users = User::all();
-        return view('manage.users.listIsActive',compact('users'))
+        $layout = $this->dynamicLayout();
+
+        return view('manage.users.listIsActive',compact('users','layout'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+
+    public function dynamicLayout()
+    {
+        $role = Auth::user()->getRoleNames()->first();
+
+        switch ($role) {
+            case 'Admin':
+                return 'layouts.adminDashboard';
+            case 'Manager':
+                return 'layouts.managerDashboard';
+            case 'Brother':
+                return 'layouts.brotherDashboard';
+            default:
+                return 'layouts.brotherDashboard';
+            }
+
     }
 }

@@ -21,9 +21,10 @@ class ChapterDirectoryController extends Controller
     // Display view of chapter directory
     public function viewDirectory(Request $request)
     {
-        $profiles = UserProfile::orderBy('last_name')->orderBy('first_name')->get();
+        $profiles = UserProfile::orderBy('last_name')->orderBy('first_name')->get(); 
+        $layout = $this->dynamicLayout();
 
-        return view('chapter_directory.view',compact('profiles'));
+        return view('chapter_directory.view',compact('profiles','layout'));
     }
 
     // Generate PDF of chapter directory
@@ -44,6 +45,23 @@ class ChapterDirectoryController extends Controller
        
         return $pdf->download('GAChapterDirectory.pdf');
     }
+
+    public function dynamicLayout()
+    {
+        $role = Auth::user()->getRoleNames()->first();
+
+        switch ($role) {
+            case 'Admin':
+                return 'layouts.adminDashboard';
+            case 'Manager':
+                return 'layouts.managerDashboard';
+            case 'Brother':
+                return 'layouts.brotherDashboard';
+            default:
+                return 'layouts.brotherDashboard';
+            }
+
+    } 
 
     
 }

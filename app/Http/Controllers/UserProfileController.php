@@ -34,7 +34,9 @@ class UserProfileController extends Controller
     public function index(Request $request): View
     {
         $users = User::orderBy('id', 'ASC')->paginate(5);
-        return view('manage.user_profiles.index',compact('users'))
+        $layout = $this->dynamicLayout();
+
+        return view('manage.user_profiles.index',compact('users','layout'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -46,7 +48,9 @@ class UserProfileController extends Controller
     public function create($id): View
     {
         $user = User::find($id);
-        return view('manage.user_profiles.create', compact('user'));
+        $layout = $this->dynamicLayout();
+
+        return view('manage.user_profiles.create', compact('user','layout'));
     }
 
     /**
@@ -87,8 +91,10 @@ class UserProfileController extends Controller
         $userProfile->queversary = $request->queversary;
         $userProfile->user_id = $id;
         $userProfile->save(); // Save the user profile to the database
+
+        $layout = $this->dynamicLayout();
     
-        return redirect()->route('manage.user_profiles.index')
+        return redirect()->route('manage.user_profiles.index','layout')
                         ->with('success','User profile created successfully');
     }
 
@@ -112,8 +118,9 @@ class UserProfileController extends Controller
         $roles = Role::pluck('name','name')->all();
         $userRole = $user->roles->pluck('name','name')->all();
         $userProfile = UserProfile::where('user_id', $user->id)->first();
+        $layout = $this->dynamicLayout();
     
-        return view('manage.user_profiles.edit',compact('user','roles','userRole','userProfile'));
+        return view('manage.user_profiles.edit',compact('user','roles','userRole','userProfile','layout'));
     }
 
     /**
@@ -143,9 +150,10 @@ class UserProfileController extends Controller
         $user = User::find($id);
         $userProfile = UserProfile::where('user_id', $user->id)->first();
         $input = $request->all();    
-        $userProfile->update($input);        
+        $userProfile->update($input);  
+        $layout = $this->dynamicLayout();      
     
-        return redirect()->route('manage.user_profiles.index')
+        return redirect()->route('manage.user_profiles.index','layout')
                         ->with('success','User profile updated successfully');
     }
 
@@ -159,7 +167,9 @@ class UserProfileController extends Controller
     {
         $user = User::find($id);
         UserProfile::where('user_id',$user->id)->delete();
-        return redirect()->route('manage.user_profiles.index')
+        $layout = $this->dynamicLayout();
+
+        return redirect()->route('manage.user_profiles.index','layout')
                         ->with('success','User profile deleted successfully');
     }
 
@@ -191,10 +201,26 @@ class UserProfileController extends Controller
             $userProfile->profile_image = $path;
             $userProfile->save();
         }
+        
 
         return redirect()->back()->with('success', 'Profile image updated successfully!');
     }
 
-    
+    public function dynamicLayout()
+    {
+        $role = Auth::user()->getRoleNames()->first();
+
+        switch ($role) {
+            case 'Admin':
+                return 'layouts.adminDashboard';
+            case 'Manager':
+                return 'layouts.managerDashboard';
+            case 'Brother':
+                return 'layouts.brotherDashboard';
+            default:
+                return 'layouts.brotherDashboard';
+            }
+
+    }    
 
 }

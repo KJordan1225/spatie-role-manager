@@ -1,4 +1,4 @@
-@extends('layouts.adminDashboard')
+@extends($layout)
 
 @section('content')
 <div class="row" style="margin-left: 250px;">
