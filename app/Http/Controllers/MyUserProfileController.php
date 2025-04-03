@@ -19,7 +19,9 @@ class MyUserProfileController extends Controller
     //Test
     public function index()
     {
-     
+        $layout = $this->dynamicLayout();
+
+       return view ('myProfile.index',compact('layout'));
         
     }
 
@@ -33,8 +35,43 @@ class MyUserProfileController extends Controller
         $userProfile = UserProfile::where('user_id', $user->id)->first();
         $layout = $this->dynamicLayout();
     
-        return view('manage.user_profiles.edit',compact('user','roles','userRole','userProfile','layout'));
+        return view('myProfile.edit',compact('user','roles','userRole','userProfile','layout'));
         
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request): RedirectResponse
+    {
+        
+        // Validate form request
+        $this->validate($request, [
+            'first_name' => 'nullable',
+            'last_name' => 'nullable',
+            'address1' => 'nullable',
+            'city' => 'nullable',
+            'state' => 'nullable',
+            'zip_code' => 'nullable',
+            'phone_number' => 'nullable',
+            'phone_type' => 'required|in:mobile,landline',
+            'dob' => 'nullable|date_format:Y-m-d',
+            'queversary' => 'nullable|date_format:Y-m-d',            
+        ]);
+
+        $user = Auth::user();
+        $userProfile = UserProfile::where('user_id', $user->id)->first();
+        $input = $request->all();    
+        $userProfile->update($input); 
+        $profile = UserProfile::where('user_id', $user->id)->first(); 
+        $layout = $this->dynamicLayout();      
+    
+        return redirect()->route('my_profile.view','layout')
+                        ->with('success','User profile updated successfully');
     }
 
     public function dynamicLayout() 

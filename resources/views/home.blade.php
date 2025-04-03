@@ -19,10 +19,9 @@
                             {{ $value }}
                         </div>
                     @endsession
-
-                    @unless (Auth::check() && Auth::user()->id === 1000)
-                        <a href="{{ url('/') }}">Return to Home</a><br /><br />
-                    @endunless
+                    
+                    <a href="{{ url('/') }}">Return to Home</a><br /><br />
+                    
 
                     {{ __('You are logged in!') }} Non Admin User
                 </div>

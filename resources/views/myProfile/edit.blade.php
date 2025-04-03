@@ -7,7 +7,7 @@
             <h2>Edit User Profile</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary btn-sm mb-2" href="#"><i class="fa fa-arrow-left"></i> Back</a>
+            <a class="btn btn-primary btn-sm mb-2" href="{{ route('my_profile.view') }}"><i class="fa fa-arrow-left"></i> Back</a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
     </div>
 @endif
 
-<form method="POST" action="#">
+<form method="POST" action="{{ route('my_profile.update') }}">
     @csrf
     @method('PUT')
 
