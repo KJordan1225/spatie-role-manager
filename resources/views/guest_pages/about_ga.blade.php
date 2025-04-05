@@ -30,6 +30,13 @@
         Current programs and initiatives of the Gamma Alpha chapter are the Talent Hunt and Achievement Week programs, Thanksgiving and Christmas Day Basket donations, and Flint Water Drive led by Bro. Mike Hamlar, Annual Golf Tournament, and volunteering at the RAM House.
     </p>
 
+    <br /><br />
 
-
+    <h1>TinyMCE in Laravel</h1>
+    <!-- Insert the blade containing the TinyMCE placeholder HTML element -->
+    <x-forms.tinymce-editor/>
+    
 @endsection
+
+
+

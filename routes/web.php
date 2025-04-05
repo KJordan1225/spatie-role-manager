@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuillController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -59,6 +61,12 @@ Route::post('/myProfile/upload_pics', [App\Http\Controllers\MyUserProfileControl
 
 // Routes to service website guest pages
 Route::get('/about_ga', [App\Http\Controllers\GuestPagesController::class, 'aboutGA'])->name('about_ga');
+
+
+// Route to handle TinyMCE image upload
+Route::post('/tinymce-upload-image', [App\Http\Controllers\TinyMCEUploadImageController::class, 'store'])->name('tinymce-upload-image');
+
+
 
 
 

@@ -40,7 +40,11 @@
 	<link rel="stylesheet" href="{{asset('assets/css/transitions.css') }}">
 	<link rel="stylesheet" href="{{asset('assets/css/responsive.css') }}">
 	<link rel="stylesheet" href="{{asset('assets/css/custome/founders.css') }}">
+	
+	
 	<script src="{{asset('assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+
+	<x-head.tinymce-config/>
 </head>
 
 <body class="wt-login">
