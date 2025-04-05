@@ -40,7 +40,11 @@
 	<link rel="stylesheet" href="{{asset('assets/css/transitions.css') }}">
 	<link rel="stylesheet" href="{{asset('assets/css/responsive.css') }}">
 	<link rel="stylesheet" href="{{asset('assets/css/custome/founders.css') }}">
+	
+	
 	<script src="{{asset('assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+
+	<x-head.tinymce-config/>
 </head>
 
 <body class="wt-login">
@@ -298,69 +302,9 @@
 				<!--Categories Start-->
 				<section class="wt-haslayout wt-main-section">
 					<div class="container">
-
-
-
-						<!-- BASILEUS MESSAGE START -->
-						<div class="basileus-message-row">
-							<div class="basileus-message-left-section">
-								<h1>Basileus Message</h1>
-								<p>
-									Greetings from Gamma Alpha Chapter, home of the Roanoke City Ques!
-								</p>
-								<p>
-									Welcome to our website.
-								</p>
-								<p>
-									We are proud to represent the Gamma Alpha Chapter of Omega Psi Phi Fraternity, Inc., a fraternity
-									grounded in a strong tradition of excellence and brotherhood. Our chapter is guided by the
-									fraternity's esteemed four cardinal principles: Manhood, Scholarship, Perseverance, and Uplift.
-									These foundational values are more than just words—they are the compass by which we navigate our
-									lives, shaping our actions both individually as men and collectively as a chapter.
-								</p>
-								<p>
-									**Manhood** speaks to our responsibility as individuals to demonstrate strength, integrity, and
-									accountability in all aspects of life. We are dedicated to leading by example, standing firm in
-									our convictions, and uplifting those around us.
-								</p>
-								<p>
-									**Scholarship** emphasizes the importance of intellectual development and the pursuit of academic
-									and professional excellence. We are committed to the lifelong acquisition of knowledge, encouraging
-									our members to achieve the highest levels of academic and career success.
-								</p>
-								<p>
-									**Perseverance** embodies our relentless determination to overcome challenges and obstacles. We
-									understand that the path to greatness requires resilience, and we are steadfast in our pursuit of
-									excellence, no matter the difficulty.
-								</p>
-								<p>
-									**Uplift** reflects our commitment to serving others and making a positive impact in our communities.
-									We believe that true greatness lies in the ability to lift others up, contributing to the betterment
-									of society through service, mentoring, and leadership.
-								</p>
-								<p>
-									Together, these principles serve as the foundation upon which we build our lives and our fraternity’s
-									mission. As members of Gamma Alpha Chapter, we strive to embody the vision of our founders: that
-									"men of high achievement and aspiration", when united, can become a dynamic and powerful force for
-									good. It is our ambition to leave a lasting impact on the world by being men of strong character and purpose.
-								</p>
-								<p>
-									In everything we do, we remain dedicated to the growth of our members, the betterment of our community,
-									and the enduring legacy of Omega Psi Phi Fraternity, Inc.
-								</p>
-								<p>
-									LONG LIVE OMEGA PSI PHI FRATERNITY, INC.!
-								</p>
-							</div>
-							<div class="basileus-message-right-section">
-								<img src="{{ asset('assets/images/custom/blank-profile.jpg') }}" alt="Basileus-Image">
-							</div>
-						</div>
-						<!-- BASILEUS MESSAGE END -->
-
-
-
-
+                         @yield('content')
+                    </div>
+                </section>
 			</main>
 			<!--Main End-->
 			<!--Footer Start-->

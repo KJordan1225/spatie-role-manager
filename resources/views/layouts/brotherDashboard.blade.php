@@ -27,21 +27,21 @@
             position: fixed;
             left: 0;
             top: 0;
-            background-color: #343a40;
-            color: white;
+            background-color: #4B006E;
+            color: #CFB53B;
             padding-top: 20px;
             margin-top: 80px;
         }
 
         .accordion-item {
-            background-color: #343a40;
+            background-color: #4B006E;
             border: none;
-			color: white;
+			color: #CFB53B;
         }
 
         .accordion-button {
-            color: white;
-            background-color: #343a40;
+            color: #CFB53B;
+            background-color: #4B006E;
             box-shadow: none;
         }
 
@@ -52,11 +52,11 @@
         .accordion-button:focus {
             box-shadow: none;
 			text-decoration: none;
-			color: white;
+			color: #CFB53B;
         }
 
         .accordion-body a {
-            color: white;
+            color: #CFB53B;
             text-decoration: none;
             padding: 8px 15px;
             display: block;
