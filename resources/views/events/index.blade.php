@@ -4,7 +4,7 @@
 <div class="container mx-auto p-4 bg-white rounded shadow w-100" style="margin-left: 200px;">
 
     @if(session('success'))
-        <div class="mb-4 p-3 bg-green-100 text-green-800 rounded" style="margin-left: 200px;">
+        <div class="alert alert-success" role="alert" style="margin-left: 200px;"> 
             {{ session('success') }}
         </div>
     @endif
@@ -41,11 +41,11 @@
                     <td>{{ $event->location }}</td>
                     <td>
                         <a class="btn btn-info btn-sm" href="{{ route('event.show',$event->id) }}"><i class="fa-solid fa-list"></i> Show</a>
-                        <a class="btn btn-primary btn-sm" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <form method="POST" action="#" style="display:inline">
+                        <a class="btn btn-primary btn-sm" href="{{ route('event.edit',$event->id) }}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                        <form method="POST" action="{{ route('event.destroy',$event->id) }}" style="display:inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this event?'")>Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this event?')">Delete</button>
                         </form>
                     </td>
                 </tr>

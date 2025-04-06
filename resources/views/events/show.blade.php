@@ -1,7 +1,10 @@
 @extends($layout)
 
 @section('content')
-<div class="row" style="margin-left: 200px;">
+
+<div class="container-xl" >
+
+<div class="row" style="margin-left: 250px;">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2> Show Event</h2>
@@ -12,11 +15,11 @@
     </div>
 </div>
 
-<div class="container" style="margin-left: 200px;">
+<div class="container" style="margin-left: 250px;">
     {!! $event->content !!}
 </div>
 
-<div class="row" style="margin-left: 200px;">
+<div class="row" style="margin-left: 250px;">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name:</strong>
@@ -41,5 +44,7 @@
             {{ $event->location }}
         </div>
     </div>
+</div>
+
 </div>
 @endsection

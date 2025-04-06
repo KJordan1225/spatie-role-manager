@@ -58,17 +58,25 @@ Route::get('/myProfile/create/', [App\Http\Controllers\MyUserProfileController::
 Route::post('/myProfile/store', [App\Http\Controllers\MyUserProfileController::class, 'store'])->name('my_profile.store');
 Route::post('/myProfile/upload_pics',[App\Http\Controllers\MyUserProfileController::class, 'uploadPic'])->name('my_profile.upload_pics');
 
-// Routesto handle Events
+// Routes to handle Events
 Route::get('/event/index', [App\Http\Controllers\EventController::class, 'index'])->name('event.index');
 Route::get('/event/create', [App\Http\Controllers\EventController::class, 'create'])->name('event.create');
 Route::post('/event/store', [App\Http\Controllers\EventController::class, 'store'])->name('event.store');
 Route::get('/event/show/{id}', [App\Http\Controllers\EventController::class, 'show'])->name('event.show');
+Route::get('/event/edit/{id}', [App\Http\Controllers\EventController::class, 'edit'])->name('event.edit');
+Route::put('/event/update/{id}', [App\Http\Controllers\EventController::class, 'update'])->name('event.update');
+Route::delete('/event/destroy/{id}', [App\Http\Controllers\EventController::class, 'destroy'])->name('event.destroy');
+// Routes for public website display
+Route::get('/event/public-index', [App\Http\Controllers\EventController::class, 'lastFiveEventsIndex'])->name('event.public-index');
+Route::get('/event/public-details/{id}', [App\Http\Controllers\EventController::class, 'showDetails'])->name('event.public-details');
+
 
 
 
 
 // Routes to service website guest pages
 Route::get('/about_ga', [App\Http\Controllers\GuestPagesController::class, 'aboutGA'])->name('about_ga');
+Route::get('/mandated_programs', [App\Http\Controllers\GuestPagesController::class, 'mandatedPrograms'])->name('mandated_programs');
 
 
 // Route to handle TinyMCE image upload
