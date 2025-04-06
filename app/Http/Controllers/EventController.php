@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class EventController extends Controller
 {
@@ -58,6 +59,20 @@ class EventController extends Controller
     
         return redirect()->route('event.index','layout')
                         ->with('success','Event created successfully');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id): View
+    {
+        $event = Event::find($id);
+        $layout = $this->dynamicLayout();
+
+        return view('events.show',compact('event','layout'));
     }
 
 

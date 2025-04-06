@@ -40,7 +40,7 @@
                     <td>{{ \Carbon\Carbon::parse($event->start_date)->format('F d, Y h:i A') }}</td>
                     <td>{{ $event->location }}</td>
                     <td>
-                        <a class="btn btn-info btn-sm" href="#"><i class="fa-solid fa-list"></i> Show</a>
+                        <a class="btn btn-info btn-sm" href="{{ route('event.show',$event->id) }}"><i class="fa-solid fa-list"></i> Show</a>
                         <a class="btn btn-primary btn-sm" href="#"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                         <form method="POST" action="#" style="display:inline">
                             @csrf

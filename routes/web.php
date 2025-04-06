@@ -56,12 +56,14 @@ Route::get('/myProfile/edit', [App\Http\Controllers\MyUserProfileController::cla
 Route::put('/myProfile/update', [App\Http\Controllers\MyUserProfileController::class, 'update'])->name('my_profile.update');
 Route::get('/myProfile/create/', [App\Http\Controllers\MyUserProfileController::class, 'create'])->name('my_profile.create');
 Route::post('/myProfile/store', [App\Http\Controllers\MyUserProfileController::class, 'store'])->name('my_profile.store');
-Route::post('/myProfile/upload_pics', [App\Http\Controllers\MyUserProfileController::class, 'uploadPic'])->name('my_profile.upload_pics');
+Route::post('/myProfile/upload_pics',[App\Http\Controllers\MyUserProfileController::class, 'uploadPic'])->name('my_profile.upload_pics');
 
 // Routesto handle Events
 Route::get('/event/index', [App\Http\Controllers\EventController::class, 'index'])->name('event.index');
 Route::get('/event/create', [App\Http\Controllers\EventController::class, 'create'])->name('event.create');
 Route::post('/event/store', [App\Http\Controllers\EventController::class, 'store'])->name('event.store');
+Route::get('/event/show/{id}', [App\Http\Controllers\EventController::class, 'show'])->name('event.show');
+
 
 
 

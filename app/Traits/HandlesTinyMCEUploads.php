@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 trait HandlesTinyMCEUploads
 {
-    public function uploadTinyMCEImage(Request $request)
+    public function uploadTinyMCEImage(Request $request) 
     {
         $validator = Validator::make($request->all(), [
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120', // Max 5MB
