@@ -58,6 +58,12 @@ Route::get('/myProfile/create/', [App\Http\Controllers\MyUserProfileController::
 Route::post('/myProfile/store', [App\Http\Controllers\MyUserProfileController::class, 'store'])->name('my_profile.store');
 Route::post('/myProfile/upload_pics', [App\Http\Controllers\MyUserProfileController::class, 'uploadPic'])->name('my_profile.upload_pics');
 
+// Routesto handle Events
+Route::get('/event/index', [App\Http\Controllers\EventController::class, 'index'])->name('event.index');
+Route::get('/event/create', [App\Http\Controllers\EventController::class, 'create'])->name('event.create');
+Route::post('/event/store', [App\Http\Controllers\EventController::class, 'store'])->name('event.store');
+
+
 
 // Routes to service website guest pages
 Route::get('/about_ga', [App\Http\Controllers\GuestPagesController::class, 'aboutGA'])->name('about_ga');

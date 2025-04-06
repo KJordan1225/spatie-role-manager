@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         $users = User::orderBy('id', 'ASC')->paginate(5);
         $layout = $this->dynamicLayout();
-        return view('manage.users.index',compact('users','layout'))
+        return view('manage.users.index',compact('users','layout')) 
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

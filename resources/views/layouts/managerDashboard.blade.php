@@ -71,6 +71,8 @@
             padding: 20px;
         }
     </style>
+
+    @stack('scripts')
 </head>
 <body>
     <div id="app">

@@ -5,14 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use App\Traits\HandlesTinyMCEUploads;
 
 class TinyMCEUploadImageController extends Controller
 {
-    use HandlesTinyMCEUploads;
     
     public function store(Request $request)
     {
-        return $this->uploadTinyMCEImage($request);
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $path = $file->store('public/uploads');
+            $url = Storage::url($path); // Gets public path
+
+            return response()->json(['location' => $url]);
+        }
+
+        return response()->json(['error' => 'No file uploaded'], 400);
     }
+
 }

@@ -2,7 +2,7 @@
 <script src="https://cdn.tiny.cloud/1/d4o8wcfll12h7el62uh71dabqn40ujma0f1wpwtyhcq93yjx/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
 tinymce.init({
-    selector: 'textarea#myeditorinstance',
+    selector: 'textarea#description',
     plugins: 'advlist autolink lists link image charmap print preview fullscreen media table code',
     toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help image',
     height: 300,
