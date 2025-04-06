@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class TinyMCEUploadImageController extends Controller
 {
@@ -16,10 +17,11 @@ class TinyMCEUploadImageController extends Controller
             
             // Create your custom filename
             // $filename = $file->getClientOriginalName().'-'.Str::uuid() . '.' . $file->getClientOriginalExtension();
-            $filename = $file->getClientOriginalName();
+            $filename = $file->getClientOriginalName();           
+
+
             // Store the file with the new name in the 'public/uploads' directory
             $path = $file->storeAs('uploads', $filename, 'public');
-
             $url = Storage::url($path); // Gets public path
 
             return response()->json(['location' => $path]);
