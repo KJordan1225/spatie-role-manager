@@ -2,6 +2,7 @@
 
 @section('content')
 
+<h6>Click the program title to open description</h6>
 
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
