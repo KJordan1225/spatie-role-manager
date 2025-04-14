@@ -230,6 +230,22 @@
                 </div>
             </div>
 
+            <!-- Docmanager Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDocmanager">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseDocmanager" aria-expanded="false" aria-controls="collapseDocmanager">
+                        Manage Documents 
+                    </button>
+                </h2>
+                <div id="collapseDocmanager" class="accordion-collapse collapse" aria-labelledby="headingDocmanager"
+                    data-bs-parent="#sidebarAccordion">
+                    <div class="accordion-body">
+                        <a href="#">List Documents</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <!-- End Sidebar Section -->

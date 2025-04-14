@@ -2,15 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuillController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FolderController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\FileRequestController;
+use App\Http\Controllers\ShareDocumentController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/documents-index', [DocumentController::class, 'index'])->name('documents.index');
+});
 
 
 // Routes to handle Role mangement.
