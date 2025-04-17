@@ -14,6 +14,8 @@ use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Models\ShareDocument;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -185,6 +187,23 @@ class UserController extends Controller
 
         return view('manage.users.listIsActive',compact('users','layout'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+
+        // Perform a database query to search for users by username or name
+        $users = User::where('email', 'like', "%$query%")
+            ->orWhere('name', 'like', "%$query%")
+            ->get();
+
+        $userList = [];
+
+        foreach ($users as $key => $value) {
+            $userList[] = ['name' => Str::studly($value->name), 'email' => $value->email, 'id' => $value->id];
+        }
+        return response()->json(['users' => $userList]);
     }
 
     public function dynamicLayout()
