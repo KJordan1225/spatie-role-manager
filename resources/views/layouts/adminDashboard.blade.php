@@ -241,7 +241,7 @@
                 <div id="collapseDocmanager" class="accordion-collapse collapse" aria-labelledby="headingDocmanager"
                     data-bs-parent="#sidebarAccordion">
                     <div class="accordion-body">
-                        <a href="#">List Documents</a>
+                        <a href="{{ route('documents.index') }}">List Documents</a>
                     </div>
                 </div>
             </div>
