@@ -33,7 +33,7 @@ class CreateAdminUserSeeder extends Seeder
             'phone_number' => '540-521-8487',
             'dob' => '1969-10-16',
             'queversary' =>'1990-03-18',            
-        ]);
+        ]);        
         
         $role = Role::create(['name' => 'Admin']);
          

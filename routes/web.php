@@ -11,9 +11,12 @@ use App\Http\Controllers\FileRequestController;
 use App\Http\Controllers\ShareDocumentController;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect('/home'); // or whatever your dashboard is
+    }
+    return view('welcome');
+});
 
 Auth::routes();
 
@@ -103,7 +106,7 @@ Route::post('/tinymce-upload-image', [App\Http\Controllers\TinyMCEUploadImageCon
 Route::middleware('auth')->group(function () {
 
     // Route::get('/', [DocumentController::class, 'index'])->name('documents.index');
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
+    // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
     
     Route::post('/update-visibility', [DocumentController::class, 'updateVisibility'])->name('update.visibility');
 

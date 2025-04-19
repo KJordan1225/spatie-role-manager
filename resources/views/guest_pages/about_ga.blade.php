@@ -3,7 +3,7 @@
 @section('content')
 
 	<p>
-        Gamma Alpha chapter was chartered in April of 1932. Mr. Fred Payton called a meeting at the old YMCA building on 3rd Avenue for the purpose of organizing a graduate chapter in the Roanoke area. Twenty-six men met on that day, lighting a torch in the community that integrated the ideals of Manhood, Scholarship, Perseverance, and Uplift.
+        Gamma Alpha chapter was chartered in April of 1933. Mr. Fred Payton called a meeting at the old YMCA building on 3rd Avenue for the purpose of organizing a graduate chapter in the Roanoke area. Twenty-six men met on that day, lighting a torch in the community that integrated the ideals of Manhood, Scholarship, Perseverance, and Uplift.
     </p> 
 
 	<p>

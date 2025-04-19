@@ -190,7 +190,7 @@
 
     .header {
         height: 50px;
-        background: #6a0dad;
+        background: #4B006E;
         width: 100%;
         display: flex;
         align-items: center;
