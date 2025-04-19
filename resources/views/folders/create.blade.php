@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.docmanager-app')
 @section('content')
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> <!-- jQuery UI CSS -->
 
