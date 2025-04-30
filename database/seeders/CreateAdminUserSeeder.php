@@ -51,7 +51,7 @@ class CreateAdminUserSeeder extends Seeder
         
         $role = Role::create(['name' => 'Manager']);
          
-        $permissions = Permission::whereBetween('id', [5, 12])->pluck('id', 'id');
+        $permissions = Permission::whereBetween('id', [5, 16])->pluck('id', 'id');
        
         $role->syncPermissions($permissions);
          
@@ -71,6 +71,8 @@ class CreateAdminUserSeeder extends Seeder
         $role1->givePermissionTo($permission2);
         $permission3 = Permission::create(['name' => 'edit-my-profile']);       
         $role1->givePermissionTo($permission3);
+        $permission4 = Permission::create(['name' => 'event-list']);       
+        $role1->givePermissionTo($permission4);
          
         $brother->assignRole([$role1->id]);
 
