@@ -3,21 +3,21 @@
     @php
         $slides = [
             [
-                'image' => 'https://placehold.co/1920x1080?text=Slide+1',
-                'title' => 'Welcome to Our Site',
+                'image' => 'assets/images/custom/hero-banner/oppf-founders.png',
+                'title' => 'Welcome to Gamma Alpha',
                 'subtitle' => 'Your journey begins here',
-                'button' => ['text' => 'Learn More', 'url' => '#learn-more']
+                'button' => ['text' => 'About GA', 'url' => "route('about_ga')"]
             ],
             [
-                'image' => 'https://placehold.co/1920x1080?text=Slide+2',
-                'title' => 'Discover Our Services',
-                'subtitle' => 'Tailored solutions for your needs',
+                'image' => 'assets/images/custom/hero-banner/omega-shield.png',
+                'title' => 'Welcome to Gamma Alpha',
+                'subtitle' => 'Your journey begins here',
                 'button' => ['text' => 'View Services', 'url' => '#services']
             ],
             [
-                'image' => 'https://placehold.co/1920x1080?text=Slide+3',
-                'title' => 'Contact Us Today',
-                'subtitle' => 'Let’s build something great together',
+                'image' => 'assets/images/custom/hero-banner/frontpage-banner1.jpg',
+                'title' => 'Welcome to Gamma Alpha',
+                'subtitle' => 'Your journey begins here',
                 'button' => ['text' => 'Get in Touch', 'url' => '#contact']
             ],
         ];
@@ -27,8 +27,8 @@
         <div class="slide {{ $index === 0 ? 'active' : '' }}" style="background-image: url('{{ $slide['image'] }}')">
             <div class="content">
                 <h1>{{ $slide['title'] }}</h1>
-                <p>{{ $slide['subtitle'] }}</p>
-                <a href="{{ $slide['button']['url'] }}">{{ $slide['button']['text'] }}</a>
+                <p style="color: black;">{{ $slide['subtitle'] }}</p>
+                <!-- <a href="{{ $slide['button']['url'] }}">{{ $slide['button']['text'] }}</a> -->
             </div>
         </div>
     @endforeach
@@ -53,6 +53,7 @@
         background-size: cover;
         background-position: center;
         opacity: 0;
+        object-fit: cover;
         transition: opacity 1s ease-in-out;
     }
     .slide.active { opacity: 1; z-index: 1; }
@@ -60,7 +61,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: rgba(128, 0, 128, 0.4);
+        background-color: rgba(128, 0, 128, 0.3);
         z-index: 2;
     }
     .content {
