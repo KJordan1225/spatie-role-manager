@@ -281,19 +281,146 @@
 				</div>
 			</header>
 			<!--Header End-->
+
 			<!--Home Banner Start-->
-			<div class="wt-haslayout wt-bannerholder">
-				<div class="container">
-					<div class="row hero-banner">
-						<img src="{{ asset('assets/images/custom/hero-banner/oppf-founders.png') }}" alt="Banner Image" class="hero-image">
-						<div class="overlay"></div>
-						<div class="hero-text">
-							<h1>Gamma Alpha Chapter of Omega Psi Phi</h1>
-						</div>
+			<style>
+				html, body {
+				height: 100%;
+				font-family: Arial, sans-serif;
+				}
+
+				.carousel {
+				position: relative;
+				width: 100%;
+				height: 400px;
+				overflow: hidden;
+				}
+
+				.slide {
+				position: absolute;
+				width: 100%;
+				height: 400px;
+				background-size: cover;
+				background-position: center;
+				opacity: 0;
+				transition: opacity 1s ease-in-out;
+				}
+
+				.slide.active {
+				opacity: 1;
+				z-index: 1;
+				}
+
+				.slide img {
+					width: 100%;
+					height: 400px;
+					object-fit: fill;
+				}
+
+				.overlay {
+				position: absolute;
+				width: 100%;
+				height: 400px;
+				background-color: rgba(120, 81, 169, 0.4); /* Purple semi-transparent */
+				z-index: 2;
+				}
+
+				.content {
+				position: absolute;
+				z-index: 3;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+				color: white;
+				padding: 20px;
+				}
+
+				.content h1 {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+				}
+
+				.content p {
+				font-size: 1.25rem;
+				margin-bottom: 1.5rem;
+				}
+
+				.content a {
+				display: inline-block;
+				padding: 12px 24px;
+				background-color: white;
+				color: purple;
+				text-decoration: none;
+				font-weight: bold;
+				border-radius: 5px;
+				transition: background 0.3s;
+				}
+
+				.content a:hover {
+				background-color: #ddd;
+				}
+
+				.dots {
+				position: absolute;
+				bottom: 20px;
+				width: 100%;
+				text-align: center;
+				z-index: 4;
+				}
+
+				.dot {
+				display: inline-block;
+				width: 12px;
+				height: 12px;
+				margin: 0 5px;
+				background: white;
+				border-radius: 50%;
+				cursor: pointer;
+				opacity: 0.5;
+				}
+
+				.dot.active {
+				opacity: 1;
+				}
+			</style>
+
+			<div class="carousel">
+				<div class="slide active"> 
+					<img src="{{ url('assets/images/custom/hero-banner/oppf-founders.png') }}" />
+					<div class="content">
+					<h1 style="color: #CFB53B">Welcome to Gamma Alpha Chapter</h1>
+					<h2 style="color: #CFB53B">Omega Psi Phi Fraternity, Inc.</h2>
+					<a href="#learn-more">Learn More</a>
 					</div>
 				</div>
-			</div>
+				<div class="slide">
+					<img src="{{ url('assets/images/custom/hero-banner/omega-shield.png') }}" />
+					<div class="content">
+					<h1 style="color: #CFB53B">Welcome to Gamma Alpha Chapter</h1>
+					<h2 style="color: #CFB53B">Omega Psi Phi Fraternity, Inc.</h2>
+					<a href="#services">View Services</a>
+					</div>
+				</div>
+				<div class="slide">
+					<img src="{{ url('assets/images/custom/hero-banner/GAIMG6.jpg') }}" />
+					<div class="content">
+					<h1 style="color: #CFB53B">Welcome to Gamma Alpha Chapter</h1>
+					<h2 style="color: #CFB53B">Omega Psi Phi Fraternity, Inc.</h2>
+					<a href="#contact">Get in Touch</a>
+					</div>
+				</div>
+
+				<div class="overlay"></div>
+
+				<div class="dots">
+					<span class="dot active" onclick="goToSlide(0)"></span>
+					<span class="dot" onclick="goToSlide(1)"></span>
+					<span class="dot" onclick="goToSlide(2)"></span>
+				</div>
+				</div>
 			<!--Home Banner End-->
+
 			<!--Main Start-->
 			<main id="wt-main" class="wt-main wt-haslayout">
 				<!--Categories Start-->
@@ -403,6 +530,35 @@
 			document.getElementById('searchform').submit(); // Submit the form
 		});
 	</script>
+
+	<script>
+		const slides = document.querySelectorAll('.slide');
+		const dots = document.querySelectorAll('.dot');
+		let currentIndex = 0;
+
+		function showSlide(index) {
+			slides.forEach((slide, i) => {
+			slide.classList.remove('active');
+			dots[i].classList.remove('active');
+			if (i === index) {
+				slide.classList.add('active');
+				dots[i].classList.add('active');
+			}
+			});
+			currentIndex = index;
+		}
+
+		function nextSlide() {
+			currentIndex = (currentIndex + 1) % slides.length;
+			showSlide(currentIndex);
+		}
+
+		function goToSlide(index) {
+			showSlide(index);
+		}
+
+		setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+		</script>
 
 	<!--Wrapper End-->
 	<script src="{{asset('assets/js/vendor/jquery-3.3.1.js') }}"></script>

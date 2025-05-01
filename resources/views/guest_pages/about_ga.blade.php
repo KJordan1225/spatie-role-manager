@@ -6,6 +6,18 @@
     @include('components.guest-header')
     @include('components.hero-carousel')
 
+    <style>
+        .my-custom-container {
+            width: 800px;
+        }
+    </style>
+
+    <div class="d-flex justify-content-center">
+        <div class="my-custom-container bg-light p-4 shadow rounded"> 
+            
+    <h1>ABOUT GAMMA ALPHA CHAPTER</h1>
+    <br />
+
 	<p>
         Gamma Alpha chapter was chartered in April of 1933. Mr. Fred Payton called a meeting at the old YMCA building on 3rd Avenue for the purpose of organizing a graduate chapter in the Roanoke area. Twenty-six men met on that day, lighting a torch in the community that integrated the ideals of Manhood, Scholarship, Perseverance, and Uplift.
     </p> 
@@ -33,6 +45,9 @@
 	<p>
         Current programs and initiatives of the Gamma Alpha chapter are the Talent Hunt and Achievement Week programs, Thanksgiving and Christmas Day Basket donations, and Flint Water Drive led by Bro. Mike Hamlar, Annual Golf Tournament, and volunteering at the RAM House.
     </p>  
+
+    </div>
+    </div>
     
     
 @endsection

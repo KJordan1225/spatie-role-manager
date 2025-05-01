@@ -4,30 +4,31 @@
         $slides = [
             [
                 'image' => 'assets/images/custom/hero-banner/oppf-founders.png',
-                'title' => 'Welcome to Gamma Alpha',
-                'subtitle' => 'Your journey begins here',
+                'title' => 'Welcome to Gamma Alpha Chapter',
+                'subtitle' => 'Omega Psi Phi Fraternity, Inc',
                 'button' => ['text' => 'About GA', 'url' => "route('about_ga')"]
-            ],
+            ],        
             [
                 'image' => 'assets/images/custom/hero-banner/omega-shield.png',
-                'title' => 'Welcome to Gamma Alpha',
-                'subtitle' => 'Your journey begins here',
+                'title' => 'Welcome to Gamma Alpha Chapter',
+                'subtitle' => 'Omega Psi Phi Fraternity, Inc',
                 'button' => ['text' => 'View Services', 'url' => '#services']
             ],
             [
-                'image' => 'assets/images/custom/hero-banner/frontpage-banner1.jpg',
-                'title' => 'Welcome to Gamma Alpha',
-                'subtitle' => 'Your journey begins here',
+                'image' => 'assets/images/custom/hero-banner/GAIMG6.jpg',
+                'title' => 'Welcome to Gamma Alpha Chapter',
+                'subtitle' => 'Omega Psi Phi Fraternity, Inc',
                 'button' => ['text' => 'Get in Touch', 'url' => '#contact']
             ],
         ];
     @endphp
 
-    @foreach ($slides as $index => $slide)
-        <div class="slide {{ $index === 0 ? 'active' : '' }}" style="background-image: url('{{ $slide['image'] }}')">
+    @foreach ($slides as $index => $slide)        
+        <div class="slide {{ $index === 0 ? 'active' : '' }}">
+            <img src="{{ $slide['image'] }}" alt="Slide Image">
             <div class="content">
                 <h1>{{ $slide['title'] }}</h1>
-                <p style="color: black;">{{ $slide['subtitle'] }}</p>
+                <h2 style="color: black;">{{ $slide['subtitle'] }}</h2>
                 <!-- <a href="{{ $slide['button']['url'] }}">{{ $slide['button']['text'] }}</a> -->
             </div>
         </div>
@@ -40,29 +41,35 @@
             <span class="dot {{ $index === 0 ? 'active' : '' }}" onclick="goToSlide({{ $index }})"></span>
         @endforeach
     </div>
+    
 </div>
 
 @push('styles')
 <style>
     html, body { height: 100%; margin: 0; font-family: Arial, sans-serif; }
-    .carousel { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+    .carousel { position: relative; width: 100%; height: 400px; overflow: hidden; }
     .slide {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 400px;
         background-size: cover;
         background-position: center;
         opacity: 0;
         object-fit: cover;
         transition: opacity 1s ease-in-out;
     }
-    .slide.active { opacity: 1; z-index: 1; }
+    .slide.active { opacity: 0.9; z-index: 1; }
     .overlay {
         position: absolute;
         width: 100%;
-        height: 100%;
-        background-color: rgba(128, 0, 128, 0.3);
+        height: 400px;
+        background-color: rgba(120, 81, 169, 0.4);
         z-index: 2;
+    }
+    .slide img {
+        width: 100%;
+        height: 400px;
+        object-fit: fill;
     }
     .content {
         position: absolute;
@@ -74,7 +81,7 @@
         color: white;
     }
     .content h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .content p { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    .content h2 { font-size: 2.25rem; margin-bottom: 1.5rem; }
     .content a {
         display: inline-block;
         padding: 12px 24px;

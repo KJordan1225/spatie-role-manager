@@ -56,11 +56,11 @@
                                         </li>
                                         <li class="menu-item-has-children page_item_has_children">
                                             <a href="{{ route('event.public-index') }}">Events</a>
-                                            <ul class="sub-menu">
+                                            <!-- <ul class="sub-menu">
                                                 <li>
                                                     <a href="javascript:void(0);">Calendar</a>
                                                 </li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
                                         <li class="menu-item-has-children page_item_has_children">
                                             <a href="javascript:void(0);">Scholarships</a>
