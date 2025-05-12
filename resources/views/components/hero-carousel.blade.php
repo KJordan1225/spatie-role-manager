@@ -25,10 +25,13 @@
 
     @foreach ($slides as $index => $slide)        
         <div class="slide {{ $index === 0 ? 'active' : '' }}">
-            <img src="{{ $slide['image'] }}" alt="Slide Image">
+            @php
+				$filePath = asset($slide['image'])
+			@endphp
+            <img src="{{ $filePath }}" alt="Slide Image">
             <div class="content">
-                <h1>{{ $slide['title'] }}</h1>
-                <h2 style="color: black;">{{ $slide['subtitle'] }}</h2>
+                <h1 style="color: #CFB53B;">{{ $slide['title'] }}</h1>
+                <h2 style="color: #CFB53B;">{{ $slide['subtitle'] }}</h2>
                 <!-- <a href="{{ $slide['button']['url'] }}">{{ $slide['button']['text'] }}</a> -->
             </div>
         </div>

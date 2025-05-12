@@ -9,23 +9,45 @@
                                 <h4>Gamma Alpha chapter Omega Psi Phi Fraternity, Inc.</h4>
                             </a></strong>
 
+                            <!-- Add Nav Menu Stylesheet: BEGIN -->
+								<style>
+									/* Custom tab styles */
+									.nav-tabs .nav-link {
+									color: purple;
+									background-color: white;
+									border: 1px solid purple;
+									margin-right: 5px;
+									}
+
+									.nav-tabs .nav-link.active {
+									color: gold;
+									background-color: purple;
+									border-color: gold;
+									}
+
+									.nav-tabs {
+									border-bottom: none; /* Optional: Remove default Bootstrap border */
+									}
+								</style>
+								<!-- Add Nav Menu Stylesheet: END -->
+
                         <div class="wt-rightarea">
                             <nav id="wt-nav" class="wt-nav navbar-expand-lg">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                     <i class="lnr lnr-menu"></i>
                                 </button>
                                 <div class="collapse navbar-collapse wt-navigation" id="navbarNav">
-                                    <ul class="navbar-nav">
-                                        <li class="menu-item-has-children page_item_has_children">
-                                            <a href="{{ url('/') }}">Main</a>
-                                            <ul class="sub-menu">
+                                    <ul class="navbar-nav nav-tabs" id="customTabs">
+                                        <li class="menu-item-has-children page_item_has_children nav-item">
+                                            <a class="nav-link" href="{{ url('/') }}" data-tab="home">Home</a>
+                                            <!-- <ul class="sub-menu">
                                                 <li class="menu-item-has-children page_item_has_children wt-notificationicon"><span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
                                                     <a href="{{ url('/home') }}">Home</a>
                                                 </li>
-                                            </ul>
+                                            </ul> -->
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('about_ga') }}">About GA</a>
+                                            <a class="nav-link" href="{{ route('about_ga') }}" data-tab="about-ga">About GA</a>
                                             <!-- <ul class="sub-menu">
                                                 <li>
                                                     <a href="javascript:void(0);">founders</a>
@@ -34,8 +56,8 @@
                                         </li>
 
 
-                                        <li class="menu-item-has-children page_item_has_children">
-                                            <a href="{{ route('mandated_programs') }}">Mandated Programs</a>
+                                        <li class="menu-item-has-children page_item_has_children nav-item">
+                                            <a class="nav-link" href="{{ route('mandated_programs') }}" data-tab="mandated-programs">Mandated Programs</a>
                                             <ul class="sub-menu">
                                                 <li>
                                                     <a href="javascript:void(0);">Achievement Week</a>
@@ -54,29 +76,51 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item-has-children page_item_has_children">
-                                            <a href="{{ route('event.public-index') }}">Events</a>
+                                        <li class="menu-item-has-children page_item_has_children nav-item">
+                                            <a class="nav-link" href="{{ route('event.public-index') }}" data-tab="events">Events</a>
                                             <!-- <ul class="sub-menu">
                                                 <li>
                                                     <a href="javascript:void(0);">Calendar</a>
                                                 </li>
                                             </ul> -->
                                         </li>
-                                        <li class="menu-item-has-children page_item_has_children">
-                                            <a href="javascript:void(0);">Scholarships</a>
+                                        <li class="menu-item-has-children page_item_has_children nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" data-tab="scholarships">Scholarships</a>
                                         </li>
-                                        <li class="menu-item-has-children page_item_has_children">
-                                            <a href="javascript:void(0);">Contact GA</a>
+                                        <li class="menu-item-has-children page_item_has_children nav-item">
+                                            <a class="nav-link" href="javascript:void(0);" data-tab="contact-ga">Contact GA</a>
                                         </li>
                                     </ul>
                                 </div>
                             </nav>
+
+                            <script>
+                                const tabs = document.querySelectorAll('#customTabs .nav-link');
+                                
+                                tabs.forEach(tab => {
+                                tab.addEventListener('click', function (e) {
+                                    e.preventDefault();
+
+                                    // Remove active from all tabs
+                                    tabs.forEach(t => t.classList.remove('active'));
+                            
+                                    // Activate clicked tab
+                                    this.classList.add('active');
+
+                                    // Now follow the link manually
+                                    window.location.href = this.href;   
+                                    
+                                });
+                                });
+                            </script>
+                            
                             <div class="wt-loginarea">
                                 <figure class="wt-userimg">
-                                    <img src="{{asset('assets/images/user-login.') }}" alt="img description">
+                                    <!-- <img src="{{asset('assets/images/user-login.png') }}" alt="img description"> -->
                                 </figure>
+                                
                                 <div class="wt-loginoption">
-                                    <a href="javascript:void(0);" id="wt-loginbtn" class="wt-loginbtn">Login</a>
+                                    <a href="{{ route('login') }}" id="wt-loginbtn" class="wt-loginbtn">Login</a>
                                     <div class="wt-loginformhold">
                                         <div class="wt-loginheader">
                                             <span>Login</span>
@@ -91,7 +135,7 @@
                                                     <input type="password" name="password" class="form-control" placeholder="Password">
                                                 </div>
                                                 <div class="wt-logininfo">
-                                                    <a href="javascript:;" class="wt-btn do-login-button">Login</a>
+                                                    <!-- <a href="javascript:;" class="wt-btn do-login-button">Login</a> -->
                                                     <span class="wt-checkbox">
                                                         <input id="wt-login" type="checkbox" name="rememberme">
                                                         <label for="wt-login">Keep me logged in</label>
@@ -114,14 +158,15 @@
                                                 </div>
                                             </fieldset>
                                             <div class="wt-loginfooterinfo">
-                                                <a href="javascript:void(0);" class="wt-show-login">Login</a>
+                                                <a href="{{ route('login') }}" class="wt-show-login">Login</a>
                                                 <a href="register.html">Create account</a>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <a href="register.html" class="wt-btn">Join Now</a>
+                                <!-- <a href="register.html" class="wt-btn">Join Now</a> -->
                             </div>
+
                             <div class="wt-userlogedin">
                                 @auth
                                 <figure class="wt-userimg">
@@ -139,9 +184,6 @@
 
                                 <nav class="wt-usernav">
                                     <ul>
-
-
-
                                         @if (Route::has('login'))
                                         <!-- <nav class="-mx-3 flex flex-1 justify-end"> -->
                                         @auth

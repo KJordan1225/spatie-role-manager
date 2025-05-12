@@ -12,6 +12,8 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<link rel="icon" href="{{ asset('favicon.ico') }}?v={{ filemtime(public_path('favicon.ico')) }}">
+
 	<!-- FONTS -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,23 +71,48 @@
 										<h4>Gamma Alpha chapter Omega Psi Phi Fraternity, Inc.</h4>
 									</a></strong>
 
+								<br /><br /><br />
+
+								<!-- Add Nav Menu Stylesheet: BEGIN -->
+								<style>
+									/* Custom tab styles */
+									.nav-tabs .nav-link {
+									color: purple;
+									background-color: white;
+									border: 1px solid purple;
+									margin-right: 5px;
+									}
+
+									.nav-tabs .nav-link.active {
+									color: gold;
+									background-color: purple;
+									border-color: gold;
+									}
+
+									.nav-tabs {
+									border-bottom: none; /* Optional: Remove default Bootstrap border */
+									}
+								</style>
+								<!-- Add Nav Menu Stylesheet: END -->
+
+
 								<div class="wt-rightarea">
 									<nav id="wt-nav" class="wt-nav navbar-expand-lg">
 										<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 											<i class="lnr lnr-menu"></i>
 										</button>
 										<div class="collapse navbar-collapse wt-navigation" id="navbarNav">
-											<ul class="navbar-nav">
-												<li class="menu-item-has-children page_item_has_children">
-													<a href="javascript:void(0);">Main</a>
-													<ul class="sub-menu">
+											<ul class="navbar-nav nav-tabs" id="customTabs">
+												<li class="menu-item-has-children page_item_has_children nav-item">
+													<a class="nav-link active" href="javascript:void(0);" data-tab="home">Home</a>
+													<!-- <ul class="sub-menu">
 														<li class="menu-item-has-children page_item_has_children wt-notificationicon"><span class="wt-dropdowarrow"><i class="lnr lnr-chevron-right"></i></span>
 															<a href="{{ url('/home') }}">Home</a>
 														</li>
-													</ul>
+													</ul> -->
 												</li>
 												<li class="nav-item">
-													<a href="{{ route('about_ga') }}">About GA</a>
+													<a class="nav-link" href="{{ route('about_ga') }}" data-tab="about-ga">About GA</a>
 													<!-- <ul class="sub-menu">
 														<li>
 															<a href="javascript:void(0);">founders</a>
@@ -94,8 +121,8 @@
 												</li>
 
 
-												<li class="menu-item-has-children page_item_has_children">
-													<a href="{{ route('mandated_programs') }}">Mandated Programs</a>
+												<li class="menu-item-has-children page_item_has_children nav-item">
+													<a class="nav-link" href="{{ route('mandated_programs') }}" data-tab="mandated-programs">Mandated Programs</a>
 													<ul class="sub-menu">
 														<li>
 															<a href="javascript:void(0);">Achievement Week</a>
@@ -114,23 +141,42 @@
 														</li>
 													</ul>
 												</li>
-												<li class="menu-item-has-children page_item_has_children">
-													<a href="{{ route('event.public-index') }}">Events</a>
-													<ul class="sub-menu">
+												<li class="menu-item-has-children page_item_has_children nav-item">
+													<a class="nav-link" href="{{ route('event.public-index') }}" data-tab="events">Events</a>
+													<!-- <ul class="sub-menu">
 														<li>
 															<a href="javascript:void(0);">Calendar</a>
 														</li>
-													</ul>
+													</ul> -->
 												</li>
-												<li class="menu-item-has-children page_item_has_children">
-													<a href="javascript:void(0);">Scholarships</a>
+												<li class="menu-item-has-children page_item_has_children nav-item">
+													<a class="nav-link" href="javascript:void(0);" data-tab="scholarships">Scholarships</a>
 												</li>
-												<li class="menu-item-has-children page_item_has_children">
-													<a href="javascript:void(0);">Contact GA</a>
+												<li class="menu-item-has-children page_item_has_children nav-item">
+													<a class="nav-link" href="javascript:void(0);" data-tab="contact-ga">Contact GA</a>
 												</li>
 											</ul>
 										</div>
 									</nav>
+
+									<script>
+										const tabs = document.querySelectorAll('#customTabs .nav-link');
+										
+										tabs.forEach(tab => {
+										tab.addEventListener('click', function (e) {
+											// e.preventDefault();
+
+											// Remove active from all tabs
+											tabs.forEach(t => t.classList.remove('active'));
+									
+											// Activate clicked tab
+											this.classList.add('active');
+											
+										});
+										});
+									</script>
+
+
 									<div class="wt-loginarea">
 										<figure class="wt-userimg">
 											<img src="{{asset('assets/images/user-login.') }}" alt="img description">
@@ -274,6 +320,9 @@
 											</ul>
 										</nav>
 									</div>
+
+									<br /><br />
+
 								</div>
 							</div>
 						</div>
@@ -391,7 +440,7 @@
 					<div class="content">
 					<h1 style="color: #CFB53B">Welcome to Gamma Alpha Chapter</h1>
 					<h2 style="color: #CFB53B">Omega Psi Phi Fraternity, Inc.</h2>
-					<a href="#learn-more">Learn More</a>
+					<!-- <a href="#learn-more">Learn More</a> -->
 					</div>
 				</div>
 				<div class="slide">
@@ -399,7 +448,7 @@
 					<div class="content">
 					<h1 style="color: #CFB53B">Welcome to Gamma Alpha Chapter</h1>
 					<h2 style="color: #CFB53B">Omega Psi Phi Fraternity, Inc.</h2>
-					<a href="#services">View Services</a>
+					<!-- <a href="#services">View Services</a> -->
 					</div>
 				</div>
 				<div class="slide">
@@ -407,7 +456,7 @@
 					<div class="content">
 					<h1 style="color: #CFB53B">Welcome to Gamma Alpha Chapter</h1>
 					<h2 style="color: #CFB53B">Omega Psi Phi Fraternity, Inc.</h2>
-					<a href="#contact">Get in Touch</a>
+					<!-- <a href="#contact">Get in Touch</a> -->
 					</div>
 				</div>
 
@@ -481,7 +530,7 @@
 								</p>
 							</div>
 							<div class="basileus-message-right-section">
-								<img src="{{ asset('assets/images/custom/blank-profile.jpg') }}" alt="Basileus-Image">
+								<img src="{{ asset('assets/images/custom/reggie_martin.jpg') }}" alt="Basileus-Image">
 							</div>
 						</div>
 						<!-- BASILEUS MESSAGE END -->
