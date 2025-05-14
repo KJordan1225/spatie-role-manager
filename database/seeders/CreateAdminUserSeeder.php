@@ -16,7 +16,8 @@ class CreateAdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::create([
+        // Create Admin user and profile
+		$user = User::create([
             'name' => 'Shadow Admin', 
             'email' => 'shadow902@gmail.com',
             'password' => bcrypt('Welc0me!')
@@ -35,13 +36,7 @@ class CreateAdminUserSeeder extends Seeder
             'queversary' =>'1990-03-18',            
         ]);        
         
-        $role = Role::create(['name' => 'Admin']);
-         
-        $permissions = Permission::pluck('id','id')->all();
-       
-        $role->syncPermissions($permissions);
-         
-        $user->assignRole([$role->id]);
+        $user->assignRole([1]);
 
         $manager = User::create([
             'name' => 'User1 Manager', 
@@ -49,13 +44,7 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('Welc0me!')
         ]);
         
-        $role = Role::create(['name' => 'Manager']);
-         
-        $permissions = Permission::whereBetween('id', [5, 16])->pluck('id', 'id');
-       
-        $role->syncPermissions($permissions);
-         
-        $manager->assignRole([$role->id]);
+        $manager->assignRole([2]);
 
         $brother = User::create([
             'name' => 'User2 Brother', 
@@ -63,18 +52,7 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('Welc0me!')
         ]);
         
-        $role1 = Role::create(['name' => 'Brother']);
-         
-        $permission1 = Permission::create(['name' => 'show-my-profile']);       
-        $role1->givePermissionTo($permission1);
-        $permission2 = Permission::create(['name' => 'create-my-profile']);       
-        $role1->givePermissionTo($permission2);
-        $permission3 = Permission::create(['name' => 'edit-my-profile']);       
-        $role1->givePermissionTo($permission3);
-        $permission4 = Permission::create(['name' => 'event-list']);       
-        $role1->givePermissionTo($permission4);
-         
-        $brother->assignRole([$role1->id]);
+        $brother->assignRole([3]);
 
         $brother = User::create([
             'name' => 'User3 Brother', 
@@ -82,7 +60,7 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('Welc0me!')
         ]);
 
-        $brother->assignRole([$role1->id]);
+        $brother->assignRole([3]);
 
         $brother = User::create([
             'name' => 'User4 Brother', 
@@ -90,7 +68,7 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('Welc0me!')
         ]);
 
-        $brother->assignRole([$role1->id]);
+        $brother->assignRole([3]);
 
         $brother = User::create([
             'name' => 'User5 Brother', 
@@ -98,7 +76,7 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('Welc0me!')
         ]);
 
-        $brother->assignRole([$role1->id]);
+        $brother->assignRole([3]);
 
         $brother = User::create([
             'name' => 'User6 Brother', 
@@ -106,7 +84,7 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('Welc0me!')
         ]);
 
-        $brother->assignRole([$role1->id]);
+        $brother->assignRole([3]);
         
     }
 }
