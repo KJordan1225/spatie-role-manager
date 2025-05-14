@@ -1,11 +1,13 @@
 <?php
-  
+
 namespace Database\Seeders;
-  
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Enums\PermissionEnum;
+use App\Enums\RoleEnum;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
-  
+use Spatie\Permission\Models\Role;
+
 class PermissionTableSeeder extends Seeder
 {
     /**
@@ -13,27 +15,9 @@ class PermissionTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $permissions = [
-           'role-list',
-           'role-create',
-           'role-edit',
-           'role-delete',
-           'profile-list',
-           'profile-create',
-           'profile-edit',
-           'profile-delete',
-           'user-list',
-           'user-create',
-           'user-edit',
-           'user-delete',
-           'event-list',
-		   'event-create',
-		   'event-delete',
-		   'event-edit'
-        ];
-        
-        foreach ($permissions as $permission) {
-             Permission::create(['name' => $permission]);
-        }
+        foreach (PermissionEnum::cases() as $permission) 
+		{
+			Permission::create(['name' => $permission->value]);
+		}
     }
 }

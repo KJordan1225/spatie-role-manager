@@ -29,8 +29,8 @@ enum PermissionEnum: string
 	case EDIT_DOCUMENT = 'document-edit';
 	case DELETE_DOCUMENT = 'document-delete';
 	case LIST_TASK = 'task-list';
-	case CREATE_TASK = 'tsak-create';
-	case EDIT_TASK = 'tsak-edit';
+	case CREATE_TASK = 'task-create';
+	case EDIT_TASK = 'task-edit';
 	case DELETE_TASK = 'task-delete';
 	case LIST_PROJECT = 'project-list';
 	case CREATE_PROJECT = 'project-create';

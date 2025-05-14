@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class PermissionTableSeeder extends Seeder
+class AssignPermissionsToRolesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -40,9 +40,9 @@ class PermissionTableSeeder extends Seeder
 									'document-create',
 									'document-edit',
 									'document-delete',
-									'tsak-list',
-									'tsak-create',
-									'tsak-edit',
+									'task-list',
+									'task-create',
+									'task-edit',
 									'task-delete',
 									'project-list',
 									'project-create',
@@ -50,7 +50,7 @@ class PermissionTableSeeder extends Seeder
 									'project-delete',
 									'myprofile-list',
 									'myprofile-edit',
-									'mtprofile-delete',
+									'myprofile-delete',
 									'myprofile-create',]);
 									
 		// Add appropriate permissions to Brother role
@@ -61,7 +61,7 @@ class PermissionTableSeeder extends Seeder
 									'myprofile-create',
 									'document-list',
 									'project-list',
-									'tsak-list',
+									'task-list',
 									'document-list',
 									'client-list',
 									'event-list',
