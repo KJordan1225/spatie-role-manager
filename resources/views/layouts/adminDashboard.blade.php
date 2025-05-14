@@ -196,23 +196,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Directory Section -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingDirectory">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseDirectory" aria-expanded="false" aria-controls="collapseDirectory">
-                        Chapter Directory
-                    </button>
-                </h2>
-                <div id="collapseDirectory" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
-                    data-bs-parent="#sidebarAccordion">
-                    <div class="accordion-body">
-                        <a href="{{ route('chapter_directory.view') }}">View/Print Chapter Directory</a>
-                        <!-- <a href="#edit-documents">Edit Documents</a> -->
-                    </div>
-                </div>
-            </div>
 
             <!-- Events Section -->
             <div class="accordion-item">
@@ -245,6 +228,23 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Directory Section -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingDirectory">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseDirectory" aria-expanded="false" aria-controls="collapseDirectory">
+                        Chapter Directory
+                    </button>
+                </h2>
+                <div id="collapseDirectory" class="accordion-collapse collapse" aria-labelledby="headingDirectory"
+                    data-bs-parent="#sidebarAccordion">
+                    <div class="accordion-body">
+                        <a href="{{ route('chapter_directory.view') }}">View/Print Chapter Directory</a>
+                        <!-- <a href="#edit-documents">Edit Documents</a> -->
+                    </div>
+                </div>
+            </div>            
 
         </div>
     </div>
