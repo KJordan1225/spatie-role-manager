@@ -17,7 +17,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
             $table->string('location')->nullable();
-            $table->text('content')->nullable();
+            $table->longtext('content')->nullable();
             $table->timestamps(); // created_at & updated_at
         });
     }
