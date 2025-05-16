@@ -126,7 +126,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'same:confirm-password',
-            'roles' => 'required'
+            'role' => 'required'
         ]);
     
         $input = $request->all();
@@ -140,7 +140,7 @@ class UserController extends Controller
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
     
-        $user->assignRole($request->input('roles'));
+        $user->assignRole($request->input('role'));
         $layout = $this->dynamicLayout();
     
         return redirect()->route('manage.users.index','layout')
