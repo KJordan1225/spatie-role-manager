@@ -35,10 +35,10 @@ class UserController extends Controller
      */
     public function index(Request $request): View
     {
-        $users = User::orderBy('id', 'ASC')->paginate(5);
+        $users = User::orderBy('id', 'ASC')->paginate(10);
         $layout = $this->dynamicLayout();
         return view('manage.users.index',compact('users','layout')) 
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+            ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -155,11 +155,25 @@ class UserController extends Controller
      */
     public function destroy($id): RedirectResponse
     {
-        User::find($id)->delete();
-        $layout = $this->dynamicLayout();
+        $user = User::find($id);
+        $firstRole = $user->getRoleNames()->first();
 
-        return redirect()->route('manage.users.index','layout')
-                        ->with('success','User deleted successfully');
+        //Do not delete if $id == 1 - Super Admin
+        if ($id != 1) {
+            $user->delete();
+            $layout = $this->dynamicLayout();
+
+            if ($firstRole === 'Admin') {
+                return redirect()->route('welcome')
+                            ->with('success','User deleted successfully');
+            } else {
+                return redirect()->route('manage.users.index','layout')
+                            ->with('success','User deleted successfully');
+            } 
+        } 
+        
+        return redirect()->route('welcome')
+                    ->with('danger','Cannot delete Super Admin user');
     }
 
 

@@ -41,4 +41,9 @@ class HomeController extends Controller
         }
         
     }
+
+    public function redirectWelcome()
+    {
+        return view('welcome');
+    }
 }

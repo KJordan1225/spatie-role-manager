@@ -12,15 +12,16 @@ use App\Http\Controllers\ShareDocumentController;
 
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('/home'); // or whatever your dashboard is
-    }
+    // if (Auth::check()) {
+    //     return redirect('/home'); // or whatever your dashboard is
+    // }
     return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'redirectWelcome'])->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/documents-index', [DocumentController::class, 'index'])->name('documents.index');
