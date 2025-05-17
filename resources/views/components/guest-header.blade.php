@@ -8,6 +8,8 @@
                         <strong class="wt-logo"><a href="{{ url('/') }}">
                                 <h4>Gamma Alpha chapter Omega Psi Phi Fraternity, Inc.</h4>
                             </a></strong>
+                            
+							<br /><br /><br />
 
                             <!-- Add Nav Menu Stylesheet: BEGIN -->
 								<style>
@@ -116,11 +118,12 @@
                             
                             <div class="wt-loginarea">
                                 <figure class="wt-userimg">
-                                    <!-- <img src="{{asset('assets/images/user-login.png') }}" alt="img description"> -->
-                                </figure>
+                                    <img src="{{asset('assets/images/user-login.png') }}" alt="img description">
+                                </figure> 
                                 
                                 <div class="wt-loginoption">
-                                    <a href="{{ route('login') }}" id="wt-loginbtn" class="wt-loginbtn">Login</a>
+                                    <!-- <a href="{{ route('login') }}" id="wt-loginbtn" class="wt-loginbtn">Login</a> -->
+                                    <a href="javascript:void(0);" id="wt-loginbtn" class="wt-loginbtn">Login</a>
                                     <div class="wt-loginformhold">
                                         <div class="wt-loginheader">
                                             <span>Login</span>

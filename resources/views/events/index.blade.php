@@ -16,6 +16,8 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-success btn-sm mb-2" href="{{ route('event.create') }}"><i class="fa fa-plus"></i> Create New Event</a>
+                &nbsp;&nbsp;&nbsp;
+                <a class="btn btn-primary btn-sm mb-2" href="{{ route('welcome') }}"><i class="fa fa-arrow-left"></i> Goto Homepage</a>
             </div>
         </div>
     </div>

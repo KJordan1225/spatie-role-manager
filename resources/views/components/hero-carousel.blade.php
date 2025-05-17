@@ -65,8 +65,7 @@
     .overlay {
         position: absolute;
         width: 100%;
-        height: 400px;
-        background-color: rgba(120, 81, 169, 0.4);
+        height: 400px; 
         z-index: 2;
     }
     .slide img {

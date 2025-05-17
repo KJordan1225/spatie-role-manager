@@ -242,7 +242,7 @@
 										</div>
 										<a href="register.html" class="wt-btn">Join Now</a>
 									</div>
-									<div class="wt-userlogedin">
+									<div class="wt-userlogedin"> 
 										@auth
 										<figure class="wt-userimg">
 											<img src="{{asset('assets/images/user-img.jpg') }}" alt="image description">
@@ -384,7 +384,6 @@
 				position: absolute;
 				width: 100%;
 				height: 400px;
-				background-color: rgba(120, 81, 169, 0.4); /* Purple semi-transparent */
 				z-index: 2;
 				}
 
