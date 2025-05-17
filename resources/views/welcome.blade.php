@@ -71,7 +71,8 @@
 										<h4>Gamma Alpha chapter Omega Psi Phi Fraternity, Inc.</h4>
 									</a></strong>
 
-								<br />
+								<br /><br /><br />
+
 								@session('success')
 									<div class="alert alert-success" role="alert" style="margin-left: 2px;"> 
 										{{ $value }}
@@ -83,7 +84,8 @@
 										{{ $value }}
 									</div>
 								@endsession
-								<br /><br />
+
+								<br />
 
 								<!-- Add Nav Menu Stylesheet: BEGIN -->
 								<style>

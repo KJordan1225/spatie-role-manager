@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <strong>Role:</strong>
                 <select name="roles[]" class="form-control" multiple="multiple">
                     @foreach ($roles as $value => $label)
@@ -60,6 +60,23 @@
                         </option>
                      @endforeach
                 </select>
+            </div> -->
+            <div class="form-group">
+                <strong>Role:</strong><br>
+                @foreach ($roles as $value => $label)
+                    <div class="form-check">
+                        <input 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="role" 
+                            id="role_{{ $value }}" 
+                            value="{{ $value }}" 
+                            {{ isset($userRole[$value]) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="role_{{ $value }}">
+                            {{ $label }}
+                        </label>
+                    </div>
+                @endforeach
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
