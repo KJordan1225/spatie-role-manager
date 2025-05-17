@@ -19,10 +19,17 @@
 
     @foreach ($profiles as $profile)
 
-    @php 
-        $url = 'storage/'.$profile->profile_image;
-        $image = public_path ($url);
-    @endphp
+        @if (empty($profile->profile_image))
+            @php 
+                $url = 'storage/profiles/user-placeholder.png';
+                $image = public_path ($url);
+            @endphp
+        @else
+            @php 
+                $url = 'storage/'.$profile->profile_image;
+                $image = public_path ($url);
+            @endphp
+        @endif
 
   <tr>
         <td><!-- Profile Image -->

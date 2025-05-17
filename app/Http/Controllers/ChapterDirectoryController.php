@@ -40,9 +40,8 @@ class ChapterDirectoryController extends Controller
         ]; 
               
         $pdf = PDF::loadView('GAChapterDirectory', $data);
-
         $pdf->getDomPDF()->set_option("isRemoteEnabled", true);
-       
+
         return $pdf->download('GAChapterDirectory.pdf');
     }
 
