@@ -43,6 +43,16 @@
         </div>
     </div>
     @if($userProfile)
+        <br />
+        @if($userProfile->profile_image)   
+            <div class="row" style="margin-left: 250px;">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <img src="{{ asset('storage/' . $userProfile->profile_image) }}" alt="Profile Image" style="width: 150px; height: 150px; border: 1px solid #000; padding: 5px; margin: 10px;">
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
@@ -58,7 +68,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Address ln 2:</strong>
-                {{ $userProfile->adderss1 }}
+                {{ $userProfile->address2 }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

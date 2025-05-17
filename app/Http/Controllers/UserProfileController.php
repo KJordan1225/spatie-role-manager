@@ -33,11 +33,11 @@ class UserProfileController extends Controller
      */
     public function index(Request $request): View
     {
-        $users = User::orderBy('id', 'ASC')->paginate(5);
+        $users = User::orderBy('id', 'ASC')->paginate(10);
         $layout = $this->dynamicLayout();
 
         return view('manage.user_profiles.index',compact('users','layout'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+            ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     /**

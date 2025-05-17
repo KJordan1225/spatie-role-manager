@@ -9,7 +9,6 @@
     </div>
 </div>
 
-@dd($layout)
 
 @session('success')
     <div class="alert alert-success" role="alert" style="margin-left: 250px;"> 
