@@ -7,6 +7,9 @@
             <h2>Update User Active Status</h2>
         </div>        
     </div>
+    <div class="pull-right">
+        <a class="btn btn-primary btn-sm mb-2" href="{{ route('manage.users.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
+    </div>
 </div>
 
 @session('success')
