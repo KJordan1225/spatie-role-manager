@@ -1,6 +1,5 @@
    <!-- Modal for file preview -->
    <div class="overlay" style="display: none">
-
        <i class="fa fa-times close-icon" onclick="closeOverlay()"></i>
    </div>
    <div class="modal" id="previewModal" tabindex="-1" role="dialog" data-backdrop="static"

@@ -7,7 +7,7 @@
 
     <style>
         .my-custom-container {
-            width: 800px;
+            width: 900px;
         }
     </style>
 

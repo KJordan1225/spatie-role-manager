@@ -25,7 +25,7 @@ class DocumentController extends Controller
             ->latest()->get();
 
         $folders = generateSidebarMenu();
-        $owners = User::get(['id', 'name', 'email']);
+        $owners = User::get(['id', 'name', 'email']);        
         $rightFolders = Folder::get(['id', 'name']);
 
         return view('documents.index', compact('documents', 'folders', 'owners', 'rightFolders'));
