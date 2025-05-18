@@ -14,16 +14,16 @@
             <div class="card-body addOverlay1 fileProperty" style="display: none">
                 <div class="d-flex justify-content-between">
                     <div class="btn-group share-buttons">
-                        <i class="fa fa-download" id="download" title="Downlaod"></i>
+                        <!-- <i class="fa fa-download" id="download" title="Downlaod"></i>
                         <i class="fas fa-share-alt" id="share" title="Share"></i>
                         <i class="fas fa-retweet" id="change" title="Replace"
-                            onclick="changeFileIcon(this, 'file')"></i>
+                            onclick="changeFileIcon(this, 'file')"></i> -->
                         <i class="fa fa-lock lock-icon" id="visibility" title="Lock" onclick="lockFile(this)"></i>
                         <input type="hidden" name="" id="isLockFile">
                     </div>
-                    <div class="share-buttons">
+                    <!-- <div class="share-buttons">
                         <i class="fa fa-archive" title="Archive" onclick="changeFileIcon(this, 'archive')"></i>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="mt-3">
                     <div class="row mb-3">

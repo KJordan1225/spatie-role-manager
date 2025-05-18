@@ -132,7 +132,7 @@ class DocumentController extends Controller
 
 
 
-    public function uploadDocumentFiles(StoreDocumentRequest $request)
+    public function uploadDocumentFiles(StoreDocumentRequest $request) 
     {
         $folderId = $this->documentService->setUploadDocumentFiles($request);
 
