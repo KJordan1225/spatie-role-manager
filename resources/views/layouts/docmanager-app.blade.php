@@ -305,9 +305,10 @@
 
     @auth
 
-        <div id="loadingOverlay">
+        <!-- <div id="loadingOverlay">
             <div class="spinner-border" role="status"></div>
-        </div>
+        </div> -->
+
         @include('documents.previewDocument')
 
         <div class="container-parent {{ !Route::is('documents.index') ? 'nav-closed' : '' }} ">
