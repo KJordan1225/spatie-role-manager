@@ -1,4 +1,4 @@
-@if (!Route::is('home'))
+@if (!Route::is('home')) 
     <nav class="navbar navbar-serach navbar-expand-lg navbar-light bg-light mb-3">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
