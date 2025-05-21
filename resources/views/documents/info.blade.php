@@ -21,9 +21,9 @@
                         <i class="fa fa-lock lock-icon" id="visibility" title="Lock" onclick="lockFile(this)"></i>
                         <input type="hidden" name="" id="isLockFile">
                     </div>
-                    <!-- <div class="share-buttons">
+                    <div class="share-buttons">
                         <i class="fa fa-archive" title="Archive" onclick="changeFileIcon(this, 'archive')"></i>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="mt-3">
                     <div class="row mb-3">
