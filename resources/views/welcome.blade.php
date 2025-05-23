@@ -253,7 +253,7 @@
 										@else
 										<div class="wt-username">
 											<!-- <h3>Louanne Mattioli</h3> -->
-											<span>Access Site Features</span>
+											<span>Member Access</span>
 										</div>
 										@endauth
 
