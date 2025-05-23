@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\QuillController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\TagController;
@@ -156,6 +157,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/contacts', function () {
         return view('contacts.index');
     })->name('contacts.index');
+
+    // Download documents
+    Route::get('/download-document/{path}', function ($path) {
+        // Decode URL-encoded path (e.g., spaces as %20)
+        $decodedPath = urldecode($path);
+    
+        // Build full path relative to public/
+        $filePath = public_path("documents/{$decodedPath}");
+    
+        // Check if file exists
+        if (file_exists($filePath)) {
+            return response()->download($filePath);
+        }
+    
+        abort(404, 'File not found');
+    })->where('path', '.*');
+    
+    
 });
 
 // Auth::routes();

@@ -6,9 +6,9 @@
         <div class="pull-left">
             <h2>Edit User Profile</h2>
         </div>
-        <div class="pull-right">
+        <!-- <div class="pull-right">
             <a class="btn btn-primary btn-sm mb-2" href="{{ route('my_profile.view') }}"><i class="fa fa-arrow-left"></i> Back</a>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -108,7 +108,7 @@
     <div class="row" style="margin-left: 250px;">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                 <img src="#" alt="Profile Image" style="width: 150px; height: 150px; border: 1px solid #000; padding: 5px; margin: 10px;">
+                 <img src="{{ asset('storage/' . $userProfile->profile_image) }}" alt="Profile Image" style="width: 150px; height: 150px; border: 1px solid #000; padding: 5px; margin: 10px;">
             </div>
         </div>
     </div>
