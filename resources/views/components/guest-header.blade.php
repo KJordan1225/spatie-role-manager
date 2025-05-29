@@ -123,7 +123,7 @@
                                 
                                 <div class="wt-loginoption">
                                     <!-- <a href="{{ route('login') }}" id="wt-loginbtn" class="wt-loginbtn">Login</a> -->
-                                    <a href="javascript:void(0);" id="wt-loginbtn" class="wt-loginbtn">Login</a>
+                                    <a href="{{ route('login') }}" id="wt-loginbtn" class="wt-loginbtn">Member Login</a>
                                     <div class="wt-loginformhold">
                                         <div class="wt-loginheader">
                                             <span>Login</span>
