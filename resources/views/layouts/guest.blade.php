@@ -2,36 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ config('app.name') }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamma Alpha Chapter Omega Psi Phi</title>
 
-	<!-- STYLESHEETS -->
-	<link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<link rel="icon" href="{{asset('assets/images/custom/favicon/favicon.png') }}" type="image/x-icon">
-	<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/normalize.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/scrollbar.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/fontawesome/fontawesome-all.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/linearicons.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/tipso.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/chosen.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/prettyPhoto.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/main.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/color.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/transitions.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/responsive.css') }}">
-	<link rel="stylesheet" href="{{asset('assets/css/custome/founders.css') }}">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">	
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-	<link rel="icon" href="{{ asset('favicon.ico') }}?v={{ filemtime(public_path('favicon.ico')) }}">
-
-    @stack('styles')
+    <!-- External Custom CSS -->
+	<link href="{{asset('assets/css/custom-1/styles-ga1.css')}}" rel="stylesheet">
+	<!-- <link href="{{asset('assets/css/custom-1/main.css')}}" rel="stylesheet"> -->
 </head>
 <body>
-    @yield('content')
-    @stack('scripts') 
+
+<div class="position-sticky top-0 sticky-box">
+    <!-- Header Section -->
+    <header id="topbar" class="text-white pt-2">
+		<div id="socmed-icons-container" class="float-end">
+		   <a href="https://facebook.com" target="_blank">
+				<i class="fa-brands fa-facebook-f"></i>				
+		   </a>
+		   &nbsp;&nbsp;&nbsp;
+		   <a href="https://instagram.com" target="_blank">
+				<i class="fa-brands fa-instagram"></i>
+			</a>			
+			&nbsp;&nbsp;&nbsp;
+			<a href="https://twitter.com" target="_blank">
+				<i class="fa-brands fa-twitter"></i>
+			</a>			
+			&nbsp;&nbsp;&nbsp;
+		</div>
+    </header>
+	
+	<nav class="navbar navbar-expand-lg custom-navbar w-100">
+	  <div class="container-fluid">
+		<a class="navbar-brand" href="#">
+			<img src="{{ asset('assets/images/custom-1/EDITTED-LOGO4.png') }}" />
+		</a>
+		<div class="collapse navbar-collapse justify-content-center">
+		  <ul class="navbar-nav">
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Home</a>
+			</li>
+
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#">About Us</a>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">Fraternity History</a></li>
+				<li><a class="dropdown-item" href="#">Chapter History</a></li>
+			  </ul>
+			</li>
+
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Leadership</a>
+			</li>
+
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#">Programs</a>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">Mandated Programs</a></li>
+			  </ul>
+			</li>
+
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Events</a>
+			</li>
+
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Contacts</a>
+			</li>
+
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Member Access</a>
+			</li>
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+</div>
+
+
+<div class="image-container-header">	
+	<img src="{{ asset('assets/images/custom-1/guest-header-img-overlay.png') }}" alt="Banner Image">
+</div>
+
+@yield('content')    
+		
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        <p>&copy; 2025 Gamma Alpha Chapter Omega Psi Phi Fraternity, Inc. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<script>
+		const collapseElementList = document.querySelectorAll('.collapse')
+		const collapseList = [...collapseElementList].map(collapseEl => new bootstrap.Collapse(collapseEl))
+	</script>
 </body>
 </html>
