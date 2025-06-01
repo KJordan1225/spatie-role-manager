@@ -148,6 +148,22 @@
     <div class="sidebar">
         <div class="accordion" id="sidebarAccordion">
 
+            <!-- To Homepage -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingRoles">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseRoles" aria-expanded="false" aria-controls="collapseRoles">
+                        To Homepage
+                    </button>
+                </h2>
+                <div id="collapseRoles" class="accordion-collapse collapse" aria-labelledby="headingRoles"
+                    data-bs-parent="#sidebarAccordion">
+                    <div class="accordion-body">
+                        <a href="{{ url('/') }}">Homepage</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Users Section -->
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingUsers">

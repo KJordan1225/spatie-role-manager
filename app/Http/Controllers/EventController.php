@@ -47,7 +47,7 @@ class EventController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'start_date' => 'required|date',
-            'end_date' => 'nullable|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'location' => 'nullable|string',
             'content' => 'nullable|string',
         ]);
@@ -101,7 +101,7 @@ class EventController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'start_date' => 'required|date',
-            'end_date' => 'nullable|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'location' => 'nullable|string',
             'content' => 'nullable|string',
         ]);
@@ -144,7 +144,7 @@ class EventController extends Controller
 
 
     // Show details of event on public website
-    public function showDetails($id)
+    public function showDetails($id) 
     {
         $event = Event::find($id);
         $layout = 'layouts.guest';

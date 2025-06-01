@@ -3,19 +3,10 @@
 
 @section('content')    
 
-    @include('components.guest-header')
-    @include('components.hero-carousel')
-
-    <style>
-        .my-custom-container {
-            width: 800px;
-        }
-    </style>
-
-    <div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center">
         <div class="my-custom-container bg-light p-4 shadow rounded"> 
             
-    <h1>ABOUT GAMMA ALPHA CHAPTER</h1>
+    <h1 style="color: #5D018E;">CHAPTER HISTORY</h1>
     <br />
 
 	<p>
@@ -48,7 +39,6 @@
 
     </div>
     </div>
-    
     
 @endsection
 

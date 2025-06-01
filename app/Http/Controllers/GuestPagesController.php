@@ -18,4 +18,10 @@ class GuestPagesController extends Controller
         $layout = 'layouts.guest';
         return view('guest_pages.mandated_programs', compact('layout'));
     }
+
+    public function fraternityHistory()
+    {
+        $layout = 'layouts.guest';
+        return view('guest_pages.fraternity_history', compact('layout'));
+    }
 }

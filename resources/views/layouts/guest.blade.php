@@ -44,14 +44,14 @@
 		<div class="collapse navbar-collapse justify-content-center">
 		  <ul class="navbar-nav">
 			<li class="nav-item">
-			  <a class="nav-link" href="#">Home</a>
+			  <a class="nav-link" href="{{ url('/') }}">Home</a>
 			</li>
 
 			<li class="nav-item dropdown">
 			  <a class="nav-link dropdown-toggle" href="#">About Us</a>
 			  <ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="#">Fraternity History</a></li>
-				<li><a class="dropdown-item" href="#">Chapter History</a></li>
+				<li><a class="dropdown-item" href="{{ route('fraternity_history') }}">Fraternity History</a></li>
+				<li><a class="dropdown-item" href="{{ route('about_ga') }}">Chapter History</a></li>
 			  </ul>
 			</li>
 
@@ -62,21 +62,49 @@
 			<li class="nav-item dropdown">
 			  <a class="nav-link dropdown-toggle" href="#">Programs</a>
 			  <ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="#">Mandated Programs</a></li>
+				<li><a class="dropdown-item" href="{{ route('mandated_programs') }}">Mandated Programs</a></li>
 			  </ul>
 			</li>
 
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Events</a>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#">Events</a>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="{{ route('event.public-index') }}">Upcoming Events</a></li>
+			  </ul>
 			</li>
 
 			<li class="nav-item">
 			  <a class="nav-link" href="#">Contacts</a>
 			</li>
 
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Member Access</a>
-			</li>
+			@auth
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Member Access</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="{{ route('home') }}">Dashboard</a></li>
+					<!-- <li><a class="dropdown-item" href="#">Logout</a></li> -->
+					<li>
+						<a class="dropdown-item" href="{{ route('logout') }}"
+							onclick="event.preventDefault();
+													document.getElementById('logout-form').submit();">
+							{{ __('Logout') }}
+						</a>
+
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+							@csrf
+						</form>
+					</li>
+				</ul>
+				</li>
+			@else
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Member Login</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+					<li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+				</ul>
+				</li>
+			@endauth
 		  </ul>
 		</div>
 	  </div>

@@ -10,6 +10,7 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FileRequestController;
 use App\Http\Controllers\ShareDocumentController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 Route::get('/', function () {
@@ -19,7 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Auth::routes(['verify' => true]);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'redirectWelcome'])->name('welcome');
@@ -91,7 +98,8 @@ Route::get('/event/public-details/{id}', [App\Http\Controllers\EventController::
 
 
 // Routes to service website guest pages
-Route::get('/about_ga', [App\Http\Controllers\GuestPagesController::class, 'aboutGA'])->name('about_ga');
+Route::get('/chapter_history', [App\Http\Controllers\GuestPagesController::class, 'aboutGA'])->name('about_ga');
+Route::get('/fraternity_history', [App\Http\Controllers\GuestPagesController::class, 'fraternityHistory'])->name('fraternity_history');
 Route::get('/mandated_programs', [App\Http\Controllers\GuestPagesController::class, 'mandatedPrograms'])->name('mandated_programs');
 
 

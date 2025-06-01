@@ -1,9 +1,6 @@
 @extends('layouts.guest')
 
-@section('content')    
-
-    @include('components.guest-header')
-    @include('components.hero-carousel')
+@section('content') 
 
     <style>
         .my-custom-container {

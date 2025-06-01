@@ -11,6 +11,11 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+	<!-- Script Font Family -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Luxurious+Script&family=Monsieur+La+Doulaise&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+
     <!-- External Custom CSS -->
 	<link href="{{asset('assets/css/custom-1/styles-ga1.css')}}" rel="stylesheet">
 	<!-- <link href="{{asset('assets/css/custom-1/main.css')}}" rel="stylesheet"> -->
@@ -50,8 +55,8 @@
 			<li class="nav-item dropdown">
 			  <a class="nav-link dropdown-toggle" href="#">About Us</a>
 			  <ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="#">Fraternity History</a></li>
-				<li><a class="dropdown-item" href="#">Chapter History</a></li>
+				<li><a class="dropdown-item" href="{{ route('fraternity_history') }}">Fraternity History</a></li>
+				<li><a class="dropdown-item" href="{{ route('about_ga') }}">Chapter History</a></li>
 			  </ul>
 			</li>
 
@@ -62,21 +67,49 @@
 			<li class="nav-item dropdown">
 			  <a class="nav-link dropdown-toggle" href="#">Programs</a>
 			  <ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="#">Mandated Programs</a></li>
+				<li><a class="dropdown-item" href="{{ route('mandated_programs') }}">Mandated Programs</a></li>
 			  </ul>
 			</li>
 
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Events</a>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#">Events</a>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="{{ route('event.public-index') }}">Upcoming Events</a></li>
+			  </ul>
 			</li>
 
 			<li class="nav-item">
 			  <a class="nav-link" href="#">Contacts</a>
 			</li>
 
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Member Access</a>
-			</li>
+			@auth
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Member Access</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="{{ route('home') }}">Dashboard</a></li>
+					<!-- <li><a class="dropdown-item" href="#">Logout</a></li> -->
+					<li>
+						<a class="dropdown-item" href="{{ route('logout') }}"
+							onclick="event.preventDefault();
+													document.getElementById('logout-form').submit();">
+							{{ __('Logout') }}
+						</a>
+
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+							@csrf
+						</form>
+					</li>
+				</ul>
+				</li>
+			@else
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#">Member Login</a>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+					<li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+				</ul>
+				</li>
+			@endauth
 		  </ul>
 		</div>
 	  </div>
@@ -93,7 +126,7 @@
     <!-- Main Content -->
     <main class="container mt-5">
 		
-		<div class="container my-4">
+		<!-- <div class="container my-4">
 			<div class="row g-3">
 			  <div class="col-md-4">
 				<div class="image-box">
@@ -111,7 +144,7 @@
 				</div>
 			  </div>
 			</div>
-		</div>
+		</div> -->
 		
 		<!-- BASILEUS MESSAGE START -->
 		<div class="basileus-message-row">
@@ -169,7 +202,7 @@
 			</div>
 		</div>
 		<!-- BASILEUS MESSAGE END -->
-		
+	</main>	
     <!-- Footer -->
     <footer class="bg-dark text-white text-center p-3 mt-5">
         <p>&copy; 2025 Gamma Alpha Chapter Omega Psi Phi Fraternity, Inc. All rights reserved.</p>

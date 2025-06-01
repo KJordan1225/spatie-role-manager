@@ -114,31 +114,28 @@
 }
 
 .basileus-message-left-section {
-    flex: 1;
+    /* flex: 1; */
+    width: 650px;
     padding-right: 20px;
 }
 
 .basileus-message-left-section h1 {
-    font-size: 65px;
-	font-family: 'Style Script', serif;
-	font-weight: 200;
+    font-size: 85px;
+    font-family: "Luxurious Script", cursive;
+    font-weight: 550;
+    font-style: normal;
     color: #7851A9;
 }
 
-.basileus-message-left-section p {
-	font-family: 'Alegreya', serif;
-	font-size: 20px
-}
-
 .basileus-message-right-section {
-    flex: 0 0 200px;
+    flex: 0 0 400px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .basileus-message-right-section img {
-    width: 200px;
-    height: 300px;
+    width: 400px;
+    height: 500px;
     object-fit: cover;
 }
