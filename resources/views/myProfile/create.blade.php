@@ -28,17 +28,24 @@
 <form method="POST" action="{{ route('my_profile.store') }}">
     @csrf
 
+    <style>
+        .required-asterisk {
+            color: red;
+        }
+    </style>
+
     <div class="row" style="margin-left: 250px;">
+        <span class="required-asterisk">* required field</span>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>First Name:</strong>
-                <input type="text" name="first_name" placeholder="FirstName" class="form-control" value="">
+                <strong>First Name:<span class="required-asterisk">*</span></strong>
+                <input type="text" name="first_name" placeholder="FirstName" class="form-control" value="" required>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Last Name:</strong>
-                <input type="text" name="last_name" placeholder="LastName" class="form-control" value="">
+                <strong>Last Name:<span class="required-asterisk">*</span></strong>
+                <input type="text" name="last_name" placeholder="LastName" class="form-control" value="" required>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

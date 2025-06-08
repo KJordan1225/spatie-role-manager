@@ -31,7 +31,8 @@
                                 Name: {{ $profile->last_name }}, {{ $profile->first_name }}<br />
                                 Address: {{ $profile->address1 }}<br />
                                         {{ $profile->city }}, {{ $profile->state}} {{ $profile->zip_code }}<br />            
-                                Email: {{ $profile->user->email }}
+                                Email: {{ $profile->user->email }}<br />
+                                Phone: {{ $profile->phone_number }}&nbsp;-&nbsp;{{ $profile->phone_type }}<br />
                             </td>
                         </tr>
                     </table>

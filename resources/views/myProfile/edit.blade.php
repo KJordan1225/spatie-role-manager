@@ -27,17 +27,24 @@
     @csrf
     @method('PUT')
 
+    <style>
+        .required-asterisk {
+            color: red;
+        }
+    </style>
+    
     <div class="row" style="margin-left: 250px;">
+        <span class="required-asterisk">* required field</span>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>First Name:</strong>
-                <input type="text" name="first_name" placeholder="FirstName" class="form-control" value="{{ $userProfile->first_name }}">
+                <strong>First Name:<span class="required-asterisk">*</span></strong>
+                <input type="text" name="first_name" placeholder="FirstName" class="form-control" value="{{ $userProfile->first_name }}" required>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Last Name:</strong>
-                <input type="text" name="last_name" placeholder="LastName" class="form-control" value="{{ $userProfile->last_name }}">
+                <strong>Last Name:<span class="required-asterisk">*</span></strong>
+                <input type="text" name="last_name" placeholder="LastName" class="form-control" value="{{ $userProfile->last_name }}" required>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

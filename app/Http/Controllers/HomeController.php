@@ -28,7 +28,7 @@ class HomeController extends Controller
         $rolesCollection = $user->getRoleNames();
         $role = $rolesCollection->first();
         $profile = Auth::user()->userProfile;
-
+        
         switch ($role) {
             case 'Admin':
                 return view('admindash');

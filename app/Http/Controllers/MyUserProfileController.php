@@ -52,8 +52,8 @@ class MyUserProfileController extends Controller
         
         // Validate form request
         $this->validate($request, [
-            'first_name' => 'nullable',
-            'last_name' => 'nullable',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'address1' => 'nullable',
             'city' => 'nullable',
             'state' => 'nullable',
@@ -98,8 +98,8 @@ class MyUserProfileController extends Controller
     {
         // Validate form request
         $this->validate($request, [
-            'first_name' => 'nullable',
-            'last_name' => 'nullable',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'address1' => 'nullable',
             'city' => 'nullable',
             'state' => 'nullable',
