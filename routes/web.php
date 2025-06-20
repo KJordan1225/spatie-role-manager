@@ -10,8 +10,27 @@ use App\Http\Controllers\FolderController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FileRequestController;
 use App\Http\Controllers\ShareDocumentController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestEmail;
 
+Route::get('/send-test-email', function () {
+            Mail::to('kjordan@ibshadownet2.com')->send(new TestEmail());
+            return 'Test email sent!';
+        });
+
+Route::get('/test-email', function () {
+    Mail::raw('This is a test email [again] from Laravel 11 using Gmail SMTP.', function ($message) {
+        $message->to('shadow902@gmail.com')
+                ->subject('Gmail SMTP Test');
+    });
+    return 'Test email sent!';
+});
+
+// Route::get('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'sendEnquiry'])->name('contact.sendEnquiry');
 
 Route::get('/', function () {
     // if (Auth::check()) {
@@ -124,7 +143,7 @@ Route::post('/tinymce-upload-image', [App\Http\Controllers\TinyMCEUploadImageCon
 *
 *** */
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     // Route::get('/', [DocumentController::class, 'index'])->name('documents.index');
     // Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');

@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $brother->assignRole([3]);        
+        $brother->assignRole([3]); 
 
         return $brother;
     }
