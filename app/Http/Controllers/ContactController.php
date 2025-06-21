@@ -38,10 +38,9 @@ class ContactController extends Controller
             $message->to($toEmail)
                     ->subject($subject)
                     ->from($fromEmail);
-            }); 
+            });        
         
-        // Mail::to('janedoe@gmail.com') ->send(new ContactUs());
-        // return 'Mailable Email sent successfully!';
+       
     }
 
     public function show()
@@ -58,7 +57,7 @@ class ContactController extends Controller
         ]);
 
         // dd($data);
-        Mail::to('janedoe@gmail.com') ->send(new Enquiry($data));
+        Mail::to($data['email']) ->send(new Enquiry($data));
         // dd('Enquiry Email sent successfully!');
         return redirect()->back()->with('success', 'Message sent successfully!');
         
