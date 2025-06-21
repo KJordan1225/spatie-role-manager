@@ -14,6 +14,8 @@ use App\Http\Controllers\ContactController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestEmail;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 Route::get('/send-test-email', function () {
             Mail::to('kjordan@ibshadownet2.com')->send(new TestEmail());
@@ -63,6 +65,12 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'redirectWelcome'])->name('welcome');
+
+// Routes for Forget Password
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::middleware(['auth', 'verified'])->group(function () {    
     Route::get('/documents-index', [DocumentController::class, 'index'])->name('documents.index');
